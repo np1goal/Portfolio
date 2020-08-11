@@ -1,0 +1,50 @@
+@import "color";
+
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center-content-vertically {
+    display: flex;
+    align-items: center;
+}
+
+@mixin center-content-horizontally {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin button {
+    color: $textColor;
+    background-color: transparent;
+    border: 1px solid $color2;
+}
+
+@mixin heading-style {
+    display: flex;
+    align-items: center;
+    color: $textColor;
+    margin-left: 7vw;
+    font-size: 4em;
+}
+
+@mixin bar-style {
+    width: 80vw;
+    margin-left: 5vw;
+    border-top: 1px solid $color2;
+}
+
+@mixin box-layout-outline {
+    -webkit-box-shadow: 0px 0px 10px 5px $color5;
+    -moz-box-shadow: 0px 0px 10px 5px $color5;
+    box-shadow: 0px 0px 5px 5px $color3;
+}
+
+@mixin box-layout-inset {
+    -webkit-box-shadow: inset 0px 0px 5px 5px $color5;
+    -moz-box-shadow: inset 0px 0px 5px 5px $color5;
+    box-shadow: inset 0px 0px 5px 5px $color3;
+}
+

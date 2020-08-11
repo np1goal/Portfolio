@@ -1,0 +1,35 @@
+@import "../styles/color";
+@import "../styles/layout";
+
+#navigation {
+    @include center-content-vertically;
+    height: 7vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 7vw auto 45vw;
+    grid-template-areas: 'logo . nav-bar';
+}
+
+#logo {
+    grid-area: logo;
+    @include center-content;
+    margin-left: 2vw;
+}
+
+img {
+    height: 6vh;
+}
+
+#nav-bar {
+    grid-area: nav-bar;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a {
+    color: $color2;
+    text-decoration: none;
+}

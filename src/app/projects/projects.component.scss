@@ -1,0 +1,196 @@
+@import "../styles/color";
+@import "../styles/layout";
+
+#projects-document {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 7vh 10vh 1vh auto;
+    grid-auto-columns: auto;
+    grid-template-areas:    '.'
+                            'projects-heading'
+                            'bar'
+                            'projects-list';
+}
+
+#projects-heading {
+    grid-area: projects-heading;
+    @include heading-style;
+}
+
+#bar {
+    grid-area: bar;
+    @include bar-style;
+}
+
+#projects-list {
+    grid-area: projects-list;
+    display: grid;
+    grid-template-rows: 10vh 40vh 10vh 40vh 10vh 40vh 10vh 40vh 10vh;
+    grid-template-areas:    '.'
+                            'portfolio'
+                            '.'
+                            'tutorial'
+                            '.'
+                            'aditi'
+                            '.'
+                            'animations'
+                            '.';
+}
+
+#portfolio {
+    grid-area: portfolio;
+}
+
+#tutorial {
+    grid-area: tutorial;
+}
+
+#aditi {
+    grid-area: aditi;
+}
+
+#animations {
+    grid-area: animations;
+}
+
+.project-row {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+}
+
+#tutorial {
+    flex-direction: row-reverse;
+}
+
+#animations {
+    flex-direction: row-reverse;
+}
+
+.card {
+    position: relative;
+    top: 0;
+    @include box-layout-outline;
+    height: 40vh;
+    width: 35vw;
+    border: 1px solid $color2;
+    border-radius: 5px;
+    background-color: $color1;
+}
+
+#portfolio-photo {
+    left: 10vw;
+    background-image: url('../../assets/portfolio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tutorial-photo {
+    left: -10vw;
+    background-image: url('../../assets/portfolio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#aditi-photo {
+    left: 10vw;
+    background-image: url('../../assets/portfolio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#animations-photo {
+    left: -10vw;
+    background-image: url('../../assets/portfolio.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.explaination {
+    @include box-layout-inset;
+    position: relative;
+    height: 90%;
+    width: 50vw;
+    border: 1px solid $color2;
+    border-radius: 5px;
+    background-color: $color1;
+    color: $textColor;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 2vh 5vh 3vh auto;
+    grid-template-areas:    '.'
+                            'heading'
+                            '.'
+                            'description';
+}
+
+.heading {
+    grid-area: heading;
+    text-align: left;
+    font-size: 2em;
+    margin: 20px;
+}
+
+.description {
+    grid-area: description;
+    text-align: left;
+    margin: 20px;
+}
+
+#portfolio-explaination {
+    top: 2.5vh;
+    left: 5vw;
+}
+
+#tutorial-explaination {
+    top: 2.5vh;
+    left: -5vw;
+    z-index: 1;
+}
+
+#aditi-explaination {
+    top: 2.5vh;
+    left: 5vw;
+}
+
+#animations-explaination {
+    top: 2.5vh;
+    left: -5vw;
+    z-index: 1;
+}
+
+@media only screen and(max-width: 750px) {
+    #projects-list {
+        grid-template-rows: 10vh 100vh 10vh 100vh 10vh 100vh 10vh 100vh 10vh;
+    }
+
+    .project-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #tutorial {
+        flex-direction: column;
+    }
+    
+    #animations {
+        flex-direction: column
+    }
+
+    .card {
+        height: 30vh;
+        width: 80%;
+        display: grid;
+        grid-template-rows: 30vh;
+        grid-template-columns: 70% 5% auto;
+        grid-template-areas:    'photo . links';
+    }
+
+    .explaination {
+        height: 60vh;
+        width: 80%;
+    }
+}

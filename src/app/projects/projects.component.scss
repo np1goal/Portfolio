@@ -3,12 +3,14 @@
 
 #projects-document {
     min-height: 100vh;
+    width: 100vw;
     display: grid;
-    grid-template-rows: 7vh 10vh 1vh auto;
+    grid-template-rows: 7vh 10vh 1vh 3vh auto;
     grid-auto-columns: auto;
     grid-template-areas:    '.'
                             'projects-heading'
                             'bar'
+                            '.'
                             'projects-list';
 }
 
@@ -24,173 +26,203 @@
 
 #projects-list {
     grid-area: projects-list;
-    display: grid;
-    grid-template-rows: 10vh 40vh 10vh 40vh 10vh 40vh 10vh 40vh 10vh;
-    grid-template-areas:    '.'
-                            'portfolio'
-                            '.'
-                            'tutorial'
-                            '.'
-                            'aditi'
-                            '.'
-                            'animations'
-                            '.';
-}
-
-#portfolio {
-    grid-area: portfolio;
-}
-
-#tutorial {
-    grid-area: tutorial;
-}
-
-#aditi {
-    grid-area: aditi;
-}
-
-#animations {
-    grid-area: animations;
-}
-
-.project-row {
-    height: 100%;
     display: flex;
     flex-direction: row;
-    // justify-content: space-around;
 }
 
-#tutorial {
-    flex-direction: row-reverse;
+.project {
+    height: 100%;
+    width: 25%;
+    border: 1px solid $color3; 
+    transition: width 0.7s ease-in-out;
 }
 
-#animations {
-    flex-direction: row-reverse;
+#tutorial-project {
+    background-image: url('../../assets/tutorial.png');
+    background-repeat: no-repeat;
 }
 
-.card {
-    position: relative;
-    top: 0;
-    @include box-layout-outline;
-    height: 40vh;
-    width: 35vw;
-    border: 1px solid $color2;
-    border-radius: 5px;
-    background-color: $color1;
+#aditi-project {
+    background-image: url('../../assets/aditi.png');
+    background-repeat: no-repeat;
 }
 
-#portfolio-photo {
-    left: 10vw;
+#animations-project {
+    background-image: url('../../assets/tutorial.png');
+    background-repeat: no-repeat;
+}
+
+#portfolio-project {
     background-image: url('../../assets/portfolio.png');
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
-#tutorial-photo {
-    left: -10vw;
-    background-image: url('../../assets/portfolio.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+.project:hover {
+    width: 75%;
 }
 
-#aditi-photo {
-    left: 10vw;
-    background-image: url('../../assets/portfolio.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#animations-photo {
-    left: -10vw;
-    background-image: url('../../assets/portfolio.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.explaination {
-    @include box-layout-inset;
-    position: relative;
-    height: 90%;
-    width: 50vw;
-    border: 1px solid $color2;
-    border-radius: 5px;
-    background-color: $color1;
-    color: $textColor;
-    z-index: 1;
-    display: grid;
-    grid-template-rows: 2vh 5vh 3vh auto;
-    grid-template-areas:    '.'
-                            'heading'
-                            '.'
-                            'description';
-}
-
-.heading {
-    grid-area: heading;
-    text-align: left;
+.project-info {
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color5, 0.7);
     font-size: 2em;
-    margin: 20px;
+    transition: all 0.7s ease-in-out;
 }
 
-.description {
-    grid-area: description;
+.project-info:hover {
+    background-color: rgba($color4, 0.8);
+}
+
+.project-name {
+    position: relative;
+    top: 40%;
+    text-align: center;
+    font-size: 1.1em;
+    color: $color3;
+    transition: all 0.5s ease-in;
+}
+
+.project-info:hover .project-name {
+    position: relative;
+    top: 7%;
+    margin-left: 10%;
+    color: $color5;
     text-align: left;
-    margin: 20px;
 }
 
-#portfolio-explaination {
-    top: 2.5vh;
-    left: 5vw;
+.project-bar {
+    width: 0%;
+    position: relative;
+    top: 9%;
+    border-top: 1px solid $color1;
+    transition: all 0.5s 0.5s ease-in;
 }
 
-#tutorial-explaination {
-    top: 2.5vh;
-    left: -5vw;
-    z-index: 1;
+.project-info:hover .project-bar {
+    width: 70%;
 }
 
-#aditi-explaination {
-    top: 2.5vh;
-    left: 5vw;
+.project-details {
+    opacity: 0;
+    margin: 10% 10% 5% 10%;
 }
 
-#animations-explaination {
-    top: 2.5vh;
-    left: -5vw;
-    z-index: 1;
+.project-info:hover .project-details {
+    animation: project-details-text-animation 0.5s 0.5s ease-in forwards;
 }
 
-@media only screen and(max-width: 750px) {
+@keyframes project-details-text-animation {
+    100% {
+        opacity: 1;
+        transform: translateY(15vh);
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+    #projects-document {
+        min-height: 140vh;
+    }
+
+    #projects-heading {
+        font-size: 2em;
+    }
+
     #projects-list {
-        grid-template-rows: 10vh 100vh 10vh 100vh 10vh 100vh 10vh 100vh 10vh;
-    }
-
-    .project-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    #tutorial {
         flex-direction: column;
     }
     
-    #animations {
-        flex-direction: column
+    .project {
+        height: 25%;
+        width: 99%;
+        transition: all 0.7s ease-in-out;
     }
-
-    .card {
-        height: 30vh;
-        width: 80%;
-        display: grid;
-        grid-template-rows: 30vh;
-        grid-template-columns: 70% 5% auto;
-        grid-template-areas:    'photo . links';
+    
+    .project:hover {
+        width: 99%;
+        height: 85%;
     }
-
-    .explaination {
-        height: 60vh;
-        width: 80%;
+    
+    .project-details {
+        font-size: 0.5em;
+    }
+    
+    @keyframes project-details-text-animation {
+        100% {
+            opacity: 1;
+            transform: translateY(5vh);
+        }
     }
 }
+
+// @media only screen and (max-width: 410px) {
+
+//     #projects-document {
+//         min-height: 210vh;
+//     }
+
+//     .project {
+//         height: 15%;
+//         width: 100%;
+//         transition: height 0.7s ease-in-out;
+//     }
+    
+//     .project:hover {
+//         width: 100%;
+//         height: 85%;
+//     }
+// }
+
+@media only screen and (max-width: 320px) {
+
+    #projects-document {
+        min-height: 150vh;
+    }
+
+    #projects-heading {
+        font-size: 1.5em;
+    }
+    
+    .project {
+        height: 25%;
+        width: 99%;
+        transition: all 0.7s ease-in-out;
+    }
+    
+    .project:hover {
+        width: 99%;
+        height: 85%;
+    }
+    
+    .project-details {
+        font-size: 0.4em;
+    }
+    
+    @keyframes project-details-text-animation {
+        100% {
+            opacity: 1;
+            transform: translateY(7vh);
+        }
+    }
+}
+
+// @media only screen and (max-width: 290px) {
+
+//     #projects-document {
+//         min-height: 240vh;
+//     }
+// }
+
+// @media only screen and (max-width: 260px) {
+
+//     #projects-document {
+//         min-height: 270vh;
+//     }
+// }
+
+// @media only screen and (max-width: 260px) {
+
+//     #projects-document {
+//         min-height: 250vh;
+//     }
+// }

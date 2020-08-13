@@ -4,7 +4,7 @@
 #about-document{
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 7vh 10vh 1vh 89vh;
+    grid-template-rows: 7% 10% 1% 89%;
     grid-template-areas:    '.'
                             'heading'
                             'bar'
@@ -55,14 +55,7 @@
     left: 10vw;
     height: 300px;
     width: 250px;
-}
-
-#cover-photo {
-    position: absolute;
-    left: 10vw;
-    height: 300px;
-    width: 250px;
-    color: red;
+    border: 2px solid $color1;
 }
 
 #proficiency {
@@ -109,4 +102,51 @@
 
 .subject-percent {
     margin-bottom: 2vh;
+}
+
+@media only screen and (max-width: 750px) {
+    #about-document{
+        min-height: 200vh;
+    }
+
+    #about-me-content {
+        grid-template-rows: 5% 40% 1% auto;
+        grid-template-columns: auto;
+        grid-template-areas:    '.'    
+                                'my-history' 
+                                '.' 
+                                'proficiency';
+    }
+
+    #my-history {
+        grid-area: my-history;
+        @include center-content-horizontally;
+        display: grid;
+        grid-template-rows: 50% 5% auto;
+        grid-template-columns: auto;
+        grid-template-areas:    'my-photo' 
+                                '.' 
+                                'my-history-info';
+    }
+
+    #photo {
+        position: relative;
+        left: 0%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        width: 150px;
+    }
+
+    #my-history-info {
+        grid-area: my-history-info;
+        margin: 0 5vw;
+    }
+
+    .subject-bar {
+        height: 1vh;
+        width: 100%;
+        border: 1px solid $color4;
+    }
 }

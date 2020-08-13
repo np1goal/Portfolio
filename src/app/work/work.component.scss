@@ -5,7 +5,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 7vh 10vh 1vh 2vh 86vh;
+    grid-template-rows: 7vh 10vh 1vh 2vh 80vh;
     grid-template-areas:    '.'
                             'work-heading'
                             'bar'
@@ -43,20 +43,20 @@
                             'work-description';
 }
 
-#rimokon {
-    transform: translateY(-100vh);
-    animation: work-card-animation 0.75s forwards ease-in-out;
-}
+// #rimokon {
+//     transform: translateY(-100vh);
+//     animation: work-card-animation 0.75s forwards ease-in-out;
+// }
 
-#ambii {
-    transform: translateY(-100vh);
-    animation: work-card-animation 0.75s 0.3s forwards ease-in-out;
-}
+// #ambii {
+//     transform: translateY(-100vh);
+//     animation: work-card-animation 0.75s 0.3s forwards ease-in-out;
+// }
 
-#lookingbus {
-    transform: translateY(-100vh);
-    animation: work-card-animation 0.75s 0.7s forwards ease-in-out;
-}
+// #lookingbus {
+//     transform: translateY(-100vh);
+//     animation: work-card-animation 0.75s 0.7s forwards ease-in-out;
+// }
 
 .work-photo { 
     grid-area: work-photo;
@@ -107,24 +107,19 @@
     font-size: 1em;
 }
 
-@keyframes work-card-animation {
-    0% { transform: translateY(100vh); }
-    100% { transform: translateY(0vh); }
-}
-
-@keyframes work-card-mobile-animation {
-    0% { transform: translateX(-100vw); }
-    100% { transform: translateX(0vw); }
-}
-
 @media only screen and(max-width: 910px) {
+
+    #work-document {
+        height: 130vh;
+    }
+
     #work-information {
         flex-direction: column;
         align-items: center;
     }
 
     .work {
-        height: 30vh;
+        height: 30%;
         width: 90%;
         margin-bottom: 50px;
         display: grid;
@@ -151,13 +146,17 @@
 }
 
 @media only screen and(max-width: 700px) {
+    #work-document {
+        height: 200vh;
+    }
+
     #work-information {
         flex-direction: column;
         align-items: center;
     }
 
     .work {
-        height: 80vh;
+        height: 50%;
         width: 80%;
         margin-bottom: 50px;
         padding-right: 20px;
@@ -190,5 +189,22 @@
 
     .work-description {
         width: 100%;
+    }
+}
+
+@media only screen and(max-width: 400px) {
+    #work-heading {
+        font-size: 3em;
+    }
+
+    #work-document {
+        height: 220vh;
+        grid-template-rows: 7% 3% 1% 2% 86%;
+    }
+}
+
+@media only screen and(max-width: 280px) {
+    #work-heading {
+        font-size: 2em;
     }
 }

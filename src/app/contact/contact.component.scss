@@ -8,7 +8,7 @@
 #contact-document {
     height: 100vh;
     display: grid;
-    grid-template-rows: 7vh 10vh 1vh auto;
+    grid-template-rows: 8vh 10vh 1vh auto;
     grid-auto-columns: auto;
     grid-template-areas:    '.'
                             'contact-heading'
@@ -27,8 +27,9 @@
 }
 
 #contact-info {
+    grid-area: contact-info;
     display: grid;
-    grid-template-rows: 30vh 35vh auto;
+    grid-template-rows: 20vh 35vh auto;
     grid-template-columns: 12.5vw 35vw 5vw 35vw 12.5vw;
     grid-template-areas:    '. . . . .'
                             '. email . call .'
@@ -48,7 +49,6 @@
     height: 35vh;
     position: relative;
     transform-style: preserve-3d;
-    animation: entry-envelop 0.7s ease-in forwards;
 
     .envelop-back {
         position: absolute;
@@ -80,9 +80,9 @@
         top: 0;
         left: 0;
         border-right: 17.5vw solid transparent;
-        border-left: 17.5vw solid $color2;
+        border-left: 17.5vw solid $color1;
         border-top: 17.5vh solid transparent;
-        border-bottom: 17.5vh solid $color2; 
+        border-bottom: 17.5vh solid $color1; 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         transform: translateZ(-0.8px);
@@ -127,11 +127,6 @@
     }
 }
 
-@keyframes entry-envelop {
-    0% { top: -50%; }
-    100% { top: 0vh; }
-}
-
 @keyframes flip-envelop {
     0% { transform: rotateY(0deg); }
     15% {transform: scale(1.1);}
@@ -147,9 +142,45 @@
     0% { top: 0; }
     100% { 
         top: -20vh;
-        -webkit-box-shadow: 0px 0px 10px 10px $color4;
-        -moz-box-shadow: 0px 0px 10px 10px $color4;
-        box-shadow: 0px 0px 10px 10px $color4;
+        -webkit-box-shadow: 0px 0px 10px 10px $color3;
+        -moz-box-shadow: 0px 0px 10px 10px $color3;
+        box-shadow: 0px 0px 10px 10px $color3;
     }
 }
 
+@media only screen and (max-width: 750px) {
+    #contact-info {
+        grid-template-rows: 3vh 35vh 6vh 35vh 3vh;
+        grid-template-columns: 12.5vw 75vw 12.5vw;
+        grid-template-areas:    '. . .'   
+                                '. email .'
+                                '. . .'
+                                '. call .'
+                                '. . .';
+    }
+
+    .envelop {
+        width: 75vw;
+    
+        .card-fold-1 {
+            border-right: 37.5vw solid transparent;
+            border-left: 37.5vw solid $color1;
+            border-top: 17.5vh solid transparent;
+            border-bottom: 17.5vh solid $color1; 
+        }
+    
+        .card-fold-2 {
+            border-right: 37.5vw solid $color4;
+            border-left: 37.5vw solid transparent;
+            border-top: 17.5vh solid transparent;
+            border-bottom: 17.5vh solid $color4; 
+        }
+    
+        .card-top {
+            border-right: 37.5vw solid transparent;
+            border-left: 37.5vw solid transparent;
+            border-top: 17.5vh solid $color3;
+            border-bottom: 17.5vh solid transparent; 
+        }
+    }
+}

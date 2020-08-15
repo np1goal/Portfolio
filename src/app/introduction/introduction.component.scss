@@ -1,0 +1,181 @@
+@import "../styles/color";
+@import "../styles/layout";
+
+#home-body {
+    height: 100vh;
+    font-family: 'Recursive', sans-serif;
+    display: grid;
+    grid-template-rows: auto 5vh 10vh 0.2vh 1vh 10vh 1vh 5vh 35vh;
+    grid-template-areas:    '.'
+                            'hi'
+                            'name'
+                            'bar'
+                            '.'
+                            'position'
+                            '.'
+                            'meet-me'
+                            '.';
+}
+
+
+
+.information {
+    color: $secondaryTextColor;
+    margin-left: 15%;
+    padding-top: 1vh;
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+#hi {
+    grid-area: hi;
+    font-size: 2em;
+    margin-left: 15.5%;
+    color: transparent;
+    animation: top-hi-animation 0.5s 1s forwards ease-in;
+}
+
+#name {
+    grid-area: name;
+    font-size: 5em;
+    color: transparent;
+    animation: top-name-animation 0.5s 1s forwards ease-in;
+}
+
+#bar {
+    grid-area: bar;
+    border-top: 3px solid $color3;
+    animation: bar-animation 1s forwards;
+}
+
+#position {
+    grid-area: position;
+    font-size: 1.5em;
+    color: transparent;
+    line-height: 1.3;
+    animation: bottom-information-animation 1s 2s forwards ease-in;
+}
+
+#meet-me {
+    grid-area: meet-me;
+}
+
+#meet-button {
+    color: transparent;
+    background-color: transparent;
+    padding: 0.5vh 1vw;
+    border: 0px solid transparent;;
+    animation: bottom-button-animation 1s 3s forwards ease-in;
+}
+
+#meet-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bar-animation {
+    0% { width: 0vw; }
+    100% { width: 95vw; }
+}
+
+@keyframes top-hi-animation {
+    0% { transform: translateY(10vh); }
+    100% { transform: translateY(0vh); color: $secondaryTextColor; }
+}
+
+@keyframes top-name-animation {
+    0% { transform: translateY(10vh); }
+    100% { transform: translateY(0vh); color: $textColor; }
+}
+
+@keyframes bottom-information-animation {
+    0% { transform: translateY(-10vh); }
+    75% { color: transparent; }
+    100% { transform: translateY(0vh); color: $secondaryTextColor;}
+}
+
+@keyframes bottom-button-animation {
+    100% { 
+        color: $backgroundColor;
+        background-color: $secondaryTextColor;
+        // border: 1px solid $secondaryTextColor;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #hi {
+        grid-area: hi;
+        font-size: 2em;
+    }
+    
+    #name {
+        grid-area: name;
+        font-size: 4em;
+    }
+    
+    #position {
+        grid-area: position;
+        font-size: 1.5em;
+    } 
+}
+
+@media only screen and (max-width: 400px) {
+    #hi {
+        font-size: 1.7em;
+    }
+    
+    #name {
+        font-size: 3em;
+    }
+    
+    #position {
+        font-size: 1.3em;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #hi {
+        font-size: 1.1em;
+    }
+    
+    #name {
+        font-size: 2em;
+    }
+    
+    #position {
+        font-size: 1.1em;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    #hi {
+        font-size: 1em;
+    }
+    
+    #name {
+        font-size: 1.4em;
+    }
+    
+    #position {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 100px) {
+    #hi {
+        font-size: 0.1em;
+    }
+    
+    #name {
+        font-size: 0.4em;
+    }
+    
+    #position {
+        font-size: 0.1em;
+    }
+
+    #meet-button {
+        font-size: 0.05em;
+    }    
+}
+

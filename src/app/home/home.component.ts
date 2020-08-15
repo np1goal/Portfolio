@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.getElementById('navigation-bar').style.animation = 'navigation-bar-animation 1s 5s forwards';
   }
 
 }

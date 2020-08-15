@@ -3,150 +3,161 @@
 
 #about-document{
     min-height: 100vh;
+    @include center-content-vertically;
+    background-color: $backgroundColor;
+    overflow-y: auto; 
     display: grid;
-    grid-template-rows: 7% 10% 1% 89%;
+    grid-template-rows: 15% auto 15%;
     grid-template-areas:    '.'
-                            'heading'
-                            'bar'
-                            'about-me-content';
+                            'about-me-content'
+                            '.';
+}
+
+#about-me-content {
+    grid-area: about-me-content;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto; 
+    display: grid;
+    grid-template-columns: 50% 10% auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'about-me-text . about-me-photo';
+}
+
+#about-me-text {
+    grid-area: about-me-text;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 20% 5% auto;
+    grid-template-areas:    'heading' 
+                            '.' 
+                            'text';
 }
 
 #heading {
     grid-area: heading;
     @include heading-style;
+    @include center-content-vertically;
 }
 
-#bar {
-    grid-area: bar;
-    @include bar-style;
+#text{
+    grid-area: text;
+    overflow: auto;
+    font-size: 1em;
+    margin: 0vh 8vw;
 }
 
-#about-me-content {
-    grid-area: about-me-content;
+#about-me-photo {
+    grid-area: about-me-photo;
     display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 49% 1% 50%;
-    grid-template-areas:   'my-history . proficiency';
-}
-
-#my-history {
-    grid-area: my-history;
-    @include center-content-horizontally;
-    display: grid;
-    grid-template-rows: 10% 45% 1% auto;
-    grid-template-columns: auto;
+    grid-template-rows: 10% 50% auto;
     grid-template-areas:    '.'
-                            'my-photo'
-                            '.'
-                            'my-history-info';
-}
-
-#my-photo {
-    grid-area: my-photo;
-}
-
-#my-history-info {
-    grid-area: my-history-info;
-    margin-left: 15vw;
+                            'photo'
+                            '.';
 }
 
 #photo {
-    position: absolute;
-    left: 10vw;
-    height: 300px;
+    grid-area: photo;
+    position: relative;
+    display: inline-block;
+    height: 250px;
     width: 250px;
-    border: 2px solid $color1;
+}
+  
+#me-photo { 
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    transform: translateZ(-10px);
 }
 
-#proficiency {
-    grid-area: proficiency;
-    @include center-content;
-}
-
-#all-bars {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.subject-bar {
-    height: 1vh;
-    width: 60%;
-    border: 1px solid $color4;
-}
-
-#html-bar, #css-bar {
+#photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
     height: 100%;
-    width: 95%;
-    background-color: $color3;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba($textColor, 1);
+    opacity: 0.3;
+    z-index: 1;
+    transition: background-color 0.1s ease-in-out;
+}
+  
+#photo:hover::before {
+    background-color: rgba($textColor, 0);
 }
 
-#scss-sass-bar {
-    height: 100%;
-    width: 75%;
-    background-color: $color3;
-}
+@media only screen and (max-width: 700px) {
 
-#js-bar, #angular10-bar {
-    height: 100%;
-    width: 90%;
-    background-color: $color3;
-}
-
-#nodejs-bar, #threejs-bar {
-    height: 100%;
-    width: 40%;
-    background-color: $color3;
-}
-
-.subject-percent {
-    margin-bottom: 2vh;
-}
-
-@media only screen and (max-width: 750px) {
     #about-document{
-        min-height: 200vh;
+        grid-template-rows: 10% auto 15%;
     }
 
     #about-me-content {
-        grid-template-rows: 5% 40% 1% auto;
+        height: 100vh;
         grid-template-columns: auto;
-        grid-template-areas:    '.'    
-                                'my-history' 
+        grid-template-rows: 40% 5% 45%;
+        grid-template-areas:    'about-me-text' 
                                 '.' 
-                                'proficiency';
+                                'about-me-photo';
     }
 
-    #my-history {
-        grid-area: my-history;
-        @include center-content-horizontally;
-        display: grid;
-        grid-template-rows: 50% 5% auto;
-        grid-template-columns: auto;
-        grid-template-areas:    'my-photo' 
-                                '.' 
-                                'my-history-info';
+    #about-me-photo {
+        grid-template-rows: auto;
+        grid-template-areas: 'photo';
+        @include center-content;
     }
 
     #photo {
-        position: relative;
-        left: 0%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
         height: 200px;
-        width: 150px;
+        width: 200px;
     }
 
-    #my-history-info {
-        grid-area: my-history-info;
-        margin: 0 5vw;
+    #me-photo {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    #about-me-content {
+        grid-template-rows: 40% 5% 30% auto;
+        grid-template-areas:    'about-me-text' 
+                                '.' 
+                                'about-me-photo'
+                                '.';
+    }
+    
+    #photo {
+        height: 100px;
+        width: 100px;
     }
 
-    .subject-bar {
-        height: 1vh;
-        width: 100%;
-        border: 1px solid $color4;
+    #me-photo {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 150px) {
+    #about-me-content {
+        grid-template-rows: 40% 5% 10% auto;
+        grid-template-areas:    'about-me-text' 
+                                '.' 
+                                'about-me-photo'
+                                '.';
+    }
+    
+    #photo {
+        height: 100px;
+        width: 100px;
+    }
+
+    #me-photo {
+        height: 100px;
+        width: 100px;
     }
 }

@@ -7,74 +7,63 @@
     width: 100vw;
     position: fixed;
     z-index: 1000;
-    display: grid;
-    background-color: rgba($color4, $alpha: 0.05);
-    grid-template-rows: auto;
-    grid-template-columns: 15vw auto 45vw;
-    grid-template-areas: 'logo . nav-bar';
-}
-
-#logo {
-    grid-area: logo;
-    @include center-content;
-    margin-left: 10vw;
-}
-
-img {
-    height: 6vh;
+    background-color: $secondaryBackgroundColor;
 }
 
 #nav-bar {
-    grid-area: nav-bar;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5vw 15vw 15vw 15vw 15vw 15vw 15vw 5vw;
+    grid-template-areas: '. home about skills work projects contact .';
+}
+
+.nav-button {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
 a {
-    color: $color2;
+    color: $secondaryTextColor;
     text-decoration: none;
 }
 
-#side-nav-bar {
-    display: none;
+#home {
+    grid-area: home;
 }
 
-#menu-icon {
-    font-size: 1.5em;
+#about {
+    grid-area: about;
 }
 
-#side-nav-bar-drawer {
-    position: absolute;
-    right: 0;
-    height: 100vh;
-    width: 20%;
-    background-color: $color3;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
+#skills {
+    grid-area: skills;
 }
 
-#side-nav-button {
-    height: 10vh;
+#work {
+    grid-area: work;
 }
 
-@media only screen and (max-width: 750px) {
-    #navigation {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 15vw auto 15vw;
-        grid-template-areas: 'logo . side-nav-bar';
-    }
+#projects {
+    grid-area: projects;
+}
 
+#contact {
+    grid-area: contact;
+}
+
+mat-icon {
+    font-size: 2em;
+}
+
+mat-icon:hover {
+    color: $textColor;
+}
+
+@media only screen and (max-width: 350px) {
     #nav-bar {
-        display: none;
-    }
-
-    #side-nav-bar {
-        grid-area: side-nav-bar;
-        display: flex;
-        @include center-content;
-        color: $color2;
+        grid-template-columns: 16.6vw 16.6vw 16.6vw 16.6vw 16.6vw 16.6vw;
+        grid-template-areas: 'home about skills work projects contact';
     }
 }

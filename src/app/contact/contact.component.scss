@@ -7,29 +7,27 @@
 
 #contact-document {
     height: 100vh;
+    width: 100vw;
+    background-color: $backgroundColor;
     display: grid;
-    grid-template-rows: 8vh 10vh 1vh auto;
+    grid-template-rows: 20vh 8vh 72vh;
     grid-auto-columns: auto;
     grid-template-areas:    '.'
                             'contact-heading'
-                            'bar'
                             'contact-info';
 }
 
 #contact-heading {
     grid-area: contact-heading;
+    color: $textColor;
     @include heading-style;
-}
-
-#bar {
-    grid-area: bar;
-    @include bar-style;
+    @include center-content-vertically;
 }
 
 #contact-info {
     grid-area: contact-info;
     display: grid;
-    grid-template-rows: 20vh 35vh auto;
+    grid-template-rows: 10vh 35vh 27vh;
     grid-template-columns: 12.5vw 35vw 5vw 35vw 12.5vw;
     grid-template-areas:    '. . . . .'
                             '. email . call .'
@@ -56,7 +54,7 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: $color3;
+        background-color: $secondaryBackgroundColor;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         transform: translateZ(-0.5px);
@@ -69,7 +67,7 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: $color3;
+        background-color: $secondaryBackgroundColor;
         font-size: 2em;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -80,9 +78,9 @@
         top: 0;
         left: 0;
         border-right: 17.5vw solid transparent;
-        border-left: 17.5vw solid $color1;
+        border-left: 17.5vw solid $secondaryBackgroundColor;
         border-top: 17.5vh solid transparent;
-        border-bottom: 17.5vh solid $color1; 
+        border-bottom: 17.5vh solid $secondaryBackgroundColor; 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         transform: translateZ(-0.8px);
@@ -92,10 +90,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        border-right: 17.5vw solid $color4;
+        border-right: 17.5vw solid $secondaryBackgroundColor;
         border-left: 17.5vw solid transparent;
         border-top: 17.5vh solid transparent;
-        border-bottom: 17.5vh solid $color4; 
+        border-bottom: 17.5vh solid $secondaryBackgroundColor; 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         transform: translateZ(-0.7px);
@@ -104,10 +102,11 @@
     .letter {
         position: relative;
         top: 1vh;
-        left: 1.7vw;
+        margin-left: auto;
+        margin-right: auto;
         width: 90%;
         height: 90%;
-        background-color: $color5;
+        background-color: $tertiaryBackgroundColor;
         border-radius: 10px;
         transform: translateZ(-0.6px);
     }
@@ -118,7 +117,7 @@
         left: 0;
         border-right: 17.5vw solid transparent;
         border-left: 17.5vw solid transparent;
-        border-top: 17.5vh solid $color3;
+        border-top: 17.5vh solid $secondaryBackgroundColor;
         border-bottom: 17.5vh solid transparent; 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -142,17 +141,30 @@
     0% { top: 0; }
     100% { 
         top: -20vh;
-        -webkit-box-shadow: 0px 0px 10px 10px $color3;
-        -moz-box-shadow: 0px 0px 10px 10px $color3;
-        box-shadow: 0px 0px 10px 10px $color3;
+        -webkit-box-shadow: 0px 0px 10px 10px $tertiaryTextColor;
+        -moz-box-shadow: 0px 0px 10px 10px $tertiaryTextColor;
+        box-shadow: 0px 0px 10px 10px $tertiaryTextColor;
     }
 }
 
 @media only screen and (max-width: 750px) {
+
+    #contact-document {
+        height: 100vh;
+        width: 100vw;
+        background-color: $backgroundColor;
+        display: grid;
+        grid-template-rows: 10vh 8vh 82vh;
+        grid-auto-columns: auto;
+        grid-template-areas:    '.'
+                                'contact-heading'
+                                'contact-info';
+    }
+
     #contact-info {
-        grid-template-rows: 3vh 35vh 6vh 35vh 3vh;
+        grid-template-rows: 5vh 35vh 2vh 35vh 5vh;
         grid-template-columns: 12.5vw 75vw 12.5vw;
-        grid-template-areas:    '. . .'   
+        grid-template-areas:    '. . .'
                                 '. email .'
                                 '. . .'
                                 '. call .'
@@ -164,22 +176,22 @@
     
         .card-fold-1 {
             border-right: 37.5vw solid transparent;
-            border-left: 37.5vw solid $color1;
+            border-left: 37.5vw solid $secondaryBackgroundColor;
             border-top: 17.5vh solid transparent;
-            border-bottom: 17.5vh solid $color1; 
+            border-bottom: 17.5vh solid $secondaryBackgroundColor; 
         }
     
         .card-fold-2 {
-            border-right: 37.5vw solid $color4;
+            border-right: 37.5vw solid $secondaryBackgroundColor;
             border-left: 37.5vw solid transparent;
             border-top: 17.5vh solid transparent;
-            border-bottom: 17.5vh solid $color4; 
+            border-bottom: 17.5vh solid $secondaryBackgroundColor; 
         }
     
         .card-top {
             border-right: 37.5vw solid transparent;
             border-left: 37.5vw solid transparent;
-            border-top: 17.5vh solid $color3;
+            border-top: 17.5vh solid $secondaryBackgroundColor;
             border-bottom: 17.5vh solid transparent; 
         }
     }

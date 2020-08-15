@@ -23,15 +23,16 @@
 }
 
 @mixin heading-style {
-    display: flex;
+    display: inline;
     align-items: center;
     color: $textColor;
     margin-left: 7vw;
-    font-size: 4em;
+    font-size: 2em;
 }
 
 @mixin bar-style {
-    width: 80vw;
+    display: inline;
+    width: 40vw;
     margin-left: 5vw;
     border-top: 1px solid $color2;
 }

@@ -2,209 +2,262 @@
 @import "../styles/layout";
 
 #work-document {
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    @include center-content-vertically;
+    background-color: $backgroundColor;
+    overflow: auto; 
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 7vh 10vh 1vh 2vh 80vh;
+    grid-template-rows: 20% auto 15%;
     grid-template-areas:    '.'
-                            'work-heading'
-                            'bar'
+                            'work-content'
+                            '.';
+}
+
+#work-content {
+    grid-area: work-content;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 5% 5% auto;
+    grid-template-areas:    'work-heading'
                             '.'
-                            'work-information';
+                            'work-experience';
 }
 
 #work-heading {
     grid-area: work-heading;
     @include heading-style;
+    @include center-content-vertically;
 }
 
-#bar {
-    grid-area: bar;
-    @include bar-style;
-}
-
-#work-information {
-    grid-area: work-information;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.work {
-    height: 100%;
-    width: 25vw;
-    border: 1px solid $color4;
-    border-radius: 10px;
-    @include box-layout-outline;
+#work-experience {
+    grid-area: work-experience;
     display: grid;
-    grid-template-rows: 20vh 5vh auto;
-    grid-template-areas:    'work-photo'
-                            '.'
-                            'work-description';
+    grid-template-rows: 40% 20% 40%;
+    grid-template-columns: auto;
+    grid-template-areas:    'work-part-1'
+                            'time-line-svg'
+                            'work-part-2';
 }
 
-// #rimokon {
-//     transform: translateY(-100vh);
-//     animation: work-card-animation 0.75s forwards ease-in-out;
-// }
-
-// #ambii {
-//     transform: translateY(-100vh);
-//     animation: work-card-animation 0.75s 0.3s forwards ease-in-out;
-// }
-
-// #lookingbus {
-//     transform: translateY(-100vh);
-//     animation: work-card-animation 0.75s 0.7s forwards ease-in-out;
-// }
-
-.work-photo { 
-    grid-area: work-photo;
-    background-color: $textColor;
-    display: flex;
-    justify-content: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+#work-part-1 {
+    grid-area: work-part-1;
 }
 
-#ambii-photo, #rimokon-photo, #lookingbus-photo {
-    height: 100%;
-}
-
-.work-description {
-    grid-area: work-description;
-    align-items: center;
-    color: $textColor;
-    padding: 10px;
+.work-card {
+    height: 20vh;
+    width: 35vw;
+    background-color: $secondaryBackgroundColor;
+    font-size: 1em;
     display: grid;
-    grid-template-rows: 4vh 1vh 2vh 1vh 2vh 1vh auto;
-    grid-template-areas:    'company-heading'
-                            '.'
-                            'company-duration'
+    grid-template-rows: 10% 10% 5% 10% 5% auto 10%;
+    grid-template-areas:    '.'
+                            'company-heading'
                             '.'
                             'company-position'
                             '.'
-                            'company-work-description';
+                            'company-experience'
+                            '.';
 }
 
 .company-heading {
     grid-area: company-heading;
-    font-size: 2em;
-}
-
-.company-duration {
-    grid-area: company-duration;
-    font-size: 0.8em;
+    @include center-content-vertically;
+    margin: 1vw;
+    color: $textColor;
 }
 
 .company-position {
     grid-area: company-position;
-    font-size: 0.8em;
+    @include center-content-vertically;
+    margin-left: 1vw;
+    color: $textColor;
 }
 
-.company-work-description {
-    grid-area: company-work-description;
-    font-size: 1em;
+.company-experience {
+    grid-area: company-experience;
+    overflow: auto;
+    margin: 0vh 1vw;
+    color: $secondaryTextColor;
 }
 
-@media only screen and(max-width: 910px) {
+#rimokon-card {
+    position: relative;
+    top: 25%;
+    left: 5%;
+    opacity: 0;
+    transform: translateY(-10%);
+    animation: work1-card-animation 0.5s 3.6s forwards;
+}
 
+#lookingbus-card {
+    position: relative;
+    top: -45%;
+    left: 60%;
+    opacity: 0;
+    transform: translateY(-10%);
+    animation: work1-card-animation 0.5s 5.6s forwards;
+}
+
+@keyframes work1-card-animation {
+    100% {opacity: 1; transform: translateY(0%);}
+}
+
+#time-line-svg {
+    grid-area: time-line-svg;
+    @include center-content;
+}
+
+#timeline-horizontal {
+    display: block;
+}
+
+#timeline-vertical {
+    display: none;
+}
+
+#timeline {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: timeline-animation 4s linear forwards;
+}
+
+@keyframes timeline-animation {
+    0% { stroke-dashoffset: 1500; }
+    80% { stroke-dashoffset: 0;}
+    100% { stroke-dashoffset: 0;  }
+}
+
+#Jun_2017 {
+    opacity: 0;
+    animation: year-animation 0.3s 3s linear forwards;
+}
+
+#Sept_2017 {
+    opacity: 0;
+    animation: year-animation 0.3s 3.3s linear forwards;
+}
+
+#Aug_2019 {
+    opacity: 0;
+    animation: year-animation 0.3s 3.6s linear forwards;
+}
+
+@keyframes year-animation {
+    100% { opacity: 1; }
+}
+
+#work-part-2 {
+    grid-area: work-part-2;
+}
+
+#ambii-card {
+    position: relative;
+    width: 45vw;
+    top: 10%;
+    left: 20%;
+    opacity: 0;
+    transform: translateY(10%);
+    animation: work2-card-animation 0.5s 4.6s forwards; 
+}
+
+@keyframes work2-card-animation {
+    100% {opacity: 1; transform: translateY(0%);}
+}
+
+@media only screen and (max-width: 1000px) {
     #work-document {
-        height: 130vh;
+        grid-template-rows: 10% auto 15%;
     }
 
-    #work-information {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .work {
-        height: 30%;
-        width: 90%;
-        margin-bottom: 50px;
-        display: grid;
+    #work-experience {
         grid-template-rows: auto;
-        grid-template-columns: 35% 5% auto;
-        grid-template-areas:    'work-photo . work-description';
-    }
-
-    #rimokon {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s forwards ease-in-out;
+        grid-template-columns: 37.5% 25% 37.5%;
+        grid-template-areas:    'work-part-2 time-line-svg work-part-1';
     }
     
-    #ambii {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s 0.3s forwards ease-in-out;
+    #timeline-horizontal {
+        display: none;
     }
     
-    #lookingbus {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s 0.7s forwards ease-in-out;
+    #timeline-vertical {
+        display: block;
+        height: 100%;
+        transform: scale(1.1);
     }
 
-}
-
-@media only screen and(max-width: 700px) {
-    #work-document {
-        height: 200vh;
-    }
-
-    #work-information {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .work {
-        height: 50%;
+    .work-card {
+        height: 30%;
         width: 80%;
-        margin-bottom: 50px;
-        padding-right: 20px;
-        display: grid;
-        grid-template-rows: 20vh 5vh auto;
-        grid-template-columns: auto;
-        grid-template-areas:    'work-photo'
-                                '.'
-                                'work-description';
+        grid-template-rows: 5% 5% 5% 5% 5% auto 5%;
     }
 
-    #rimokon {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s forwards ease-in-out;
+    .company-heading, .company-position, .company-experience {
+        font-size: 0.5em;
+    }
+
+    .company-experience {
+        line-height: 1.5em;
     }
     
-    #ambii {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s 0.3s forwards ease-in-out;
+    #rimokon-card {
+        position: relative;
+        top: 10%;
+        left: 5%;
     }
     
-    #lookingbus {
-        transform: translateX(-100vw);
-        animation: work-card-mobile-animation 0.75s 0.7s forwards ease-in-out;
+    #lookingbus-card {
+        position: relative;
+        top: 35%;
+        left: 5%;
     }
-
-    .work-photo{
-        width: 100%;
-    }
-
-    .work-description {
-        width: 100%;
+    
+    #ambii-card {
+        position: relative;
+        top: 15%;
+        left: 10%;
+        height: 40%;
+        width: 80%;
     }
 }
 
-@media only screen and(max-width: 400px) {
-    #work-heading {
-        font-size: 3em;
+@media only screen and (max-width: 300px) {
+    #work-experience {
+        grid-template-rows: auto;
+        grid-template-columns: 37.5% 25% 37.5%;
+        grid-template-areas:    'work-part-2 time-line-svg work-part-1';
+    }
+    
+    #timeline-horizontal {
+        display: none;
+    }
+    
+    #timeline-vertical {
+        display: block;
+        height: 100%;
+        transform: scale(1.1);
     }
 
-    #work-document {
-        height: 220vh;
-        grid-template-rows: 7% 3% 1% 2% 86%;
+    .work-card {
+        height: 30%;
+        width: 80%;
+        grid-template-rows: 5% 5% 5% 5% 5% auto 5%;
     }
-}
 
-@media only screen and(max-width: 280px) {
-    #work-heading {
-        font-size: 2em;
+    .company-heading, .company-position, .company-experience {
+        font-size: 0.3em;
+    }
+ 
+    #lookingbus-card {
+        top: 25%;
+    }
+    
+    #ambii-card {
+        position: relative;
+        top: 15%;
+        left: 10%;
+        height: 40%;
+        width: 80%;
     }
 }

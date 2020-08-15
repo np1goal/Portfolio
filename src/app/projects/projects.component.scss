@@ -2,14 +2,14 @@
 @import "../styles/layout";
 
 #projects-document {
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
+    background-color: $backgroundColor;
     display: grid;
-    grid-template-rows: 7vh 10vh 1vh 3vh auto;
+    grid-template-rows: 20vh 5vh 1vh 74vh;
     grid-auto-columns: auto;
     grid-template-areas:    '.'
                             'projects-heading'
-                            'bar'
                             '.'
                             'projects-list';
 }
@@ -17,212 +17,178 @@
 #projects-heading {
     grid-area: projects-heading;
     @include heading-style;
-}
-
-#bar {
-    grid-area: bar;
-    @include bar-style;
+    @include center-content-vertically;
 }
 
 #projects-list {
     grid-area: projects-list;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-rows: 4vh 30vh 30vh 10vh;
+    grid-template-areas:    '. . . .'
+                            '. project1 project2 .'
+                            '. project3 project4 .'
+                            '. . . .';
 }
 
-.project {
-    height: 100%;
-    width: 25%;
-    border: 1px solid $color3; 
-    transition: width 0.7s ease-in-out;
-}
-
-#tutorial-project {
-    background-image: url('../../assets/tutorial.png');
+#project1 {
+    grid-area: project1;
+    background-image: url("../../assets/tutorial.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#aditi-project {
-    background-image: url('../../assets/aditi.png');
+#project2 {
+    grid-area: project2;
+    background-image: url("../../assets/aditi.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#animations-project {
-    background-image: url('../../assets/tutorial.png');
+#project3 {
+    grid-area: project3;
+    background-image: url("../../assets/tutorial.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#portfolio-project {
-    background-image: url('../../assets/portfolio.png');
+#project4 {
+    grid-area: project4;
+    background-image: url("../../assets/portfolio.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.project:hover {
-    width: 75%;
-}
-
-.project-info {
+img{
     height: 100%;
     width: 100%;
-    background-color: rgba($color5, 0.7);
+    z-index: 0;
+}
+
+.project-description {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($backgroundColor, 0.5);
+    z-index: 1;
+    border: 2px solid #000;
+    transition: all 0.5s ease;
+}
+
+.project-heading {
     font-size: 2em;
-    transition: all 0.7s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
 }
 
-.project-info:hover {
-    background-color: rgba($color4, 0.8);
+.bar {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 0;
+    border-top: 1px solid $secondaryTextColor;
+    -ms-transform: translate(-20%, -20%);
+    transform: translate(-20%, -20%);
 }
 
-.project-name {
-    position: relative;
-    top: 40%;
-    text-align: center;
-    font-size: 1.1em;
-    color: $color3;
-    transition: all 0.5s ease-in;
-}
-
-.project-info:hover .project-name {
-    position: relative;
-    top: 7%;
-    margin-left: 10%;
-    color: $color5;
-    text-align: left;
-}
-
-.project-bar {
-    width: 0%;
-    position: relative;
-    top: 9%;
-    border-top: 1px solid $color1;
-    transition: all 0.5s 0.5s ease-in;
-}
-
-.project-info:hover .project-bar {
-    width: 70%;
-}
-
-.project-details {
+.project-text {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    overflow-y: auto;
     opacity: 0;
-    margin: 10% 10% 5% 10%;
+    font-size: 0.7em;
+    -ms-transform: translate(-30%, -60%);
+    transform: translate(-30%, -60%);
 }
 
-.project-info:hover .project-details {
-    animation: project-details-text-animation 0.5s 0.5s ease-in forwards;
+.project-links {
+    float: right;
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    opacity: 0;
 }
 
-@keyframes project-details-text-animation {
-    100% {
-        opacity: 1;
-        transform: translateY(15vh);
-    }
+mat-icon {
+    font-size: 1.5em;
 }
 
-@media only screen and (max-width: 650px) {
+.project-description:hover {
+    background-color: rgba($backgroundColor, 0.9);
+}
 
+.project-description:hover .project-heading {
+    font-size: 1em;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: $textColor;
+    -ms-transform: translate(-10%, -10%);
+    transform: translate(-10%, -10%);
+}
+
+.project-description:hover .bar {
+    animation: bar-animation 0.5s ease forwards;
+}
+
+.project-description:hover .project-text {
+    animation: project-text-animation 0.5s ease forwards;
+}
+
+.project-description:hover .project-links {
+    animation: project-text-animation 0.5s ease forwards;
+}
+
+@keyframes bar-animation {
+    100% { width: 80%; }
+}
+
+@keyframes project-text-animation {
+    100% { opacity: 1; }
+}
+
+@media only screen and (max-width: 1000px) {
     #projects-document {
-        min-height: 140vh;
-    }
-
-    #projects-heading {
-        font-size: 2em;
+        grid-template-rows: 10vh 5vh 1vh 85vh;
+        grid-auto-columns: auto;
+        grid-template-areas:    '.'
+                                'projects-heading'
+                                'projects-list';
     }
 
     #projects-list {
-        flex-direction: column;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows: 5vh 17.5vh 17.5vh 17.5vh 17.5vh 10vh;
+        grid-template-areas:    '. . .'
+                                '. project1 .' 
+                                '. project2 .'
+                                '. project3 .' 
+                                '. project4 .'
+                                '. . .';
     }
-    
-    .project {
-        height: 25%;
-        width: 99%;
-        transition: all 0.7s ease-in-out;
-    }
-    
-    .project:hover {
-        width: 99%;
-        height: 85%;
-    }
-    
-    .project-details {
-        font-size: 0.5em;
-    }
-    
-    @keyframes project-details-text-animation {
-        100% {
-            opacity: 1;
-            transform: translateY(5vh);
-        }
+
+    .project-text {
+        position: absolute;
+        top: 75%;
+        left: 40%;
+        -ms-transform: translate(-30%, -75%);
+        transform: translate(-30%, -75%);
     }
 }
 
-// @media only screen and (max-width: 410px) {
-
-//     #projects-document {
-//         min-height: 210vh;
-//     }
-
-//     .project {
-//         height: 15%;
-//         width: 100%;
-//         transition: height 0.7s ease-in-out;
-//     }
-    
-//     .project:hover {
-//         width: 100%;
-//         height: 85%;
-//     }
-// }
-
-@media only screen and (max-width: 320px) {
-
-    #projects-document {
-        min-height: 150vh;
-    }
-
-    #projects-heading {
-        font-size: 1.5em;
-    }
-    
-    .project {
-        height: 25%;
-        width: 99%;
-        transition: all 0.7s ease-in-out;
-    }
-    
-    .project:hover {
-        width: 99%;
-        height: 85%;
-    }
-    
-    .project-details {
-        font-size: 0.4em;
-    }
-    
-    @keyframes project-details-text-animation {
-        100% {
-            opacity: 1;
-            transform: translateY(7vh);
-        }
+@media only screen and (max-width: 1100px) {
+    .project-text {
+        position: absolute;
+        top: 70%;
+        left: 30%;
+        -ms-transform: translate(-30%, -70%);
+        transform: translate(-30%, -70%);
     }
 }
-
-// @media only screen and (max-width: 290px) {
-
-//     #projects-document {
-//         min-height: 240vh;
-//     }
-// }
-
-// @media only screen and (max-width: 260px) {
-
-//     #projects-document {
-//         min-height: 270vh;
-//     }
-// }
-
-// @media only screen and (max-width: 260px) {
-
-//     #projects-document {
-//         min-height: 250vh;
-//     }
-// }

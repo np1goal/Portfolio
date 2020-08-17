@@ -22,6 +22,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
 }
 
 a {
@@ -33,24 +35,62 @@ a {
     grid-area: home;
 }
 
+#home:hover::after {
+    content: 'Home';
+    color: $textColor;
+}
+
 #about {
     grid-area: about;
+}
+
+#about:hover::after {
+    content: 'About';
+    color: $textColor;
 }
 
 #skills {
     grid-area: skills;
 }
 
+#skills:hover::after {
+    content: 'Skills';
+    color: $textColor;
+}
+
 #work {
     grid-area: work;
+}
+
+#work:hover::after {
+    content: 'Work';
+    color: $textColor;
 }
 
 #projects {
     grid-area: projects;
 }
 
+#projects:hover::after {
+    content: 'Projects';
+    color: $textColor;
+}
+
 #contact {
     grid-area: contact;
+}
+
+#contact:hover::after {
+    content: 'Contact';
+    color: $textColor;
+}
+
+#home:hover mat-icon, #about:hover mat-icon, #skills:hover mat-icon, #work:hover mat-icon, #projects:hover mat-icon, #contact:hover mat-icon {
+    display: none;
+}
+
+#home:hover, #about:hover, #skills:hover, #work:hover, #projects:hover, #contact:hover {
+    background-color: rgba($backgroundColor, 0.5);
 }
 
 mat-icon {

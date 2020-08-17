@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigateComponent implements OnInit {
 
-  presentTab = 'home';
+  activeTabString = 'home';
 
   constructor() { }
 
@@ -18,5 +18,11 @@ export class NavigateComponent implements OnInit {
         window.scrollTo(0, 0);
       }, 1);
     }
+  }
+
+  activeTab(tab: string) {
+    document.getElementById(tab).style.borderBottom = '3px solid #feda6a';
+    document.getElementById(this.activeTabString).style.borderBottom = '0px solid transparent';
+    this.activeTabString = tab;
   }
 }

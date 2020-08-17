@@ -1,9 +1,21 @@
 @import "../styles/color";
 @import "../styles/layout";
 
+#loading {
+    position: absolute;
+    top: 0vh;
+    z-index: 3;
+    animation: loading-animation 1s 4s forwards;
+}
+
+@keyframes loading-animation {
+    100%{ opacity: 0; visibility: hidden;}
+}
+
 #skill-document {
     height: 100vh;
     width: 100vw;
+    font-family: 'Source Code Pro', monospace;
     background-color: $backgroundColor;
     display: grid;
     grid-template-rows: 20vh 5vh 74vh;
@@ -55,6 +67,7 @@
 .topic-button {
     height: 10%;
     width: 100%; 
+    color: $secondaryTextColor;
     @include center-content-vertically;
     overflow-x: hidden;
     cursor: pointer;

@@ -24,10 +24,10 @@ export class SkillComponent implements OnInit {
   }
 
   changeTab(topic) {
-    document.getElementById(this.activeTopic).style.color = '#707070';
+    document.getElementById(this.activeTopic).style.color = '#d4d4dc';
     document.getElementById(this.activeTopic).style.borderRight = '0px solid transparent';
-    document.getElementById(topic).style.color = '#e85a4f';
-    document.getElementById(topic).style.borderRight = '2px solid #e85a4f';
+    document.getElementById(topic).style.color = '#feda6a';
+    document.getElementById(topic).style.borderRight = '2px solid #feda6a';
 
     this.activeTopic = topic;
     this.descriptionDisplay(topic);

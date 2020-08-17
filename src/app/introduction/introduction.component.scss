@@ -3,6 +3,7 @@
 
 #home-body {
     height: 100vh;
+    background-color: $backgroundColor;
     font-family: 'Recursive', sans-serif;
     display: grid;
     grid-template-rows: auto 5vh 10vh 0.2vh 1vh 10vh 1vh 5vh 35vh;
@@ -45,7 +46,7 @@
 
 #bar {
     grid-area: bar;
-    border-top: 3px solid $color3;
+    border-top: 3px solid $tertiaryBackgroundColor;
     animation: bar-animation 1s forwards;
 }
 

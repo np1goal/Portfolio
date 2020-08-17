@@ -10,7 +10,7 @@ body { margin: 0; font-family: Courier New, Courier, monospace;}
     min-height: 100vh;
     width: 100vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #0b0c10;
-    color: #c5c6c7;
+    /* background-color: #0b0c10;
+    color: #c5c6c7; */
     /* background-image: linear-gradient(90deg, #7e8496 , #161616 100%); */
 }

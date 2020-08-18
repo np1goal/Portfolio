@@ -63,7 +63,7 @@
 #about-me-photo {
     grid-area: about-me-photo;
     display: grid;
-    grid-template-rows: 10% 50% auto;
+    grid-template-rows: 25% 50% auto;
     grid-template-areas:    '.'
                             'photo'
                             '.';

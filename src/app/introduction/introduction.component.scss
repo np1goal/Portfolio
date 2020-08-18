@@ -39,7 +39,7 @@
 
 #name {
     grid-area: name;
-    font-size: 5em;
+    font-size: 4.5em;
     color: transparent;
     animation: top-name-animation 0.5s 1s forwards ease-in;
 }
@@ -99,11 +99,10 @@
     100% { 
         color: $backgroundColor;
         background-color: $secondaryTextColor;
-        // border: 1px solid $secondaryTextColor;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     #hi {
         grid-area: hi;
         font-size: 2em;
@@ -111,16 +110,33 @@
     
     #name {
         grid-area: name;
-        font-size: 4em;
+        font-size: 3.7em;
     }
     
     #position {
         grid-area: position;
-        font-size: 1.5em;
+        font-size: 1.3em;
     } 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 620px) {
+    #hi {
+        grid-area: hi;
+        font-size: 2em;
+    }
+    
+    #name {
+        grid-area: name;
+        font-size: 3.5em;
+    }
+    
+    #position {
+        grid-area: position;
+        font-size: 1.2em;
+    } 
+}
+
+@media only screen and (max-width: 550px) {
     #hi {
         font-size: 1.7em;
     }
@@ -130,7 +146,7 @@
     }
     
     #position {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 }
 
@@ -144,7 +160,7 @@
     }
     
     #position {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 }
 
@@ -158,7 +174,21 @@
     }
     
     #position {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 180px) {
+    #hi {
         font-size: 1em;
+    }
+    
+    #name {
+        font-size: 1.2em;
+    }
+    
+    #position {
+        font-size: 0.6em;
     }
 }
 
@@ -177,6 +207,7 @@
 
     #meet-button {
         font-size: 0.05em;
-    }    
+        padding: 0vh 0vw;
+    }   
 }
 

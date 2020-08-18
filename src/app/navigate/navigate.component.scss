@@ -15,95 +15,73 @@
     width: 100%;
     display: grid;
     grid-template-columns: 5vw 15vw 15vw 15vw 15vw 15vw 15vw 5vw;
-    grid-template-areas: '. home about skills work projects contact .';
+    grid-template-areas: '. home-tab about-tab skills-tab work-tab projects-tab contact-tab .';
 }
 
 .nav-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: $secondaryTextColor;
+    font-family: 'Source Code Pro', monospace;
     cursor: pointer;
-    transition: all 0.5s ease-in;
 }
 
 a {
-    color: $secondaryTextColor;
     text-decoration: none;
 }
 
-#home {
-    grid-area: home;
+.icon {
+    text-decoration: none;
+    color: $secondaryTextColor;
+    transform: translateY(50%);
+    text-align: center;
+    z-index: 1;
+    opacity: 1;
+    transition: all 0.5s ease;
 }
 
-#home:hover::after {
-    content: 'Home';
-    color: $textColor;
+.icon-name {
+    text-decoration: none;
+    color: $secondaryTextColor;
+    transform: translateY(-50%);
+    text-align: center;
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
 }
 
-#about {
-    grid-area: about;
-}
-
-#about:hover::after {
-    content: 'About';
-    color: $textColor;
-}
-
-#skills {
-    grid-area: skills;
-}
-
-#skills:hover::after {
-    content: 'Skills';
-    color: $textColor;
-}
-
-#work {
-    grid-area: work;
-}
-
-#work:hover::after {
-    content: 'Work';
-    color: $textColor;
-}
-
-#projects {
-    grid-area: projects;
-}
-
-#projects:hover::after {
-    content: 'Projects';
-    color: $textColor;
-}
-
-#contact {
-    grid-area: contact;
-}
-
-#contact:hover::after {
-    content: 'Contact';
-    color: $textColor;
-}
-
-#home:hover mat-icon, #about:hover mat-icon, #skills:hover mat-icon, #work:hover mat-icon, #projects:hover mat-icon, #contact:hover mat-icon {
-    display: none;
-}
-
-#home:hover, #about:hover, #skills:hover, #work:hover, #projects:hover, #contact:hover {
+.nav-button:hover {
     background-color: rgba($backgroundColor, 0.5);
 }
 
-mat-icon {
-    font-size: 2em;
-}
-
-mat-icon:hover {
+.nav-button:hover .icon {
     color: $textColor;
+    opacity: 0;
 }
 
-@media only screen and (max-width: 350px) {
-    #nav-bar {
-        grid-template-columns: 16.6vw 16.6vw 16.6vw 16.6vw 16.6vw 16.6vw;
-        grid-template-areas: 'home about skills work projects contact';
-    }
+.nav-button:hover .icon-name {
+    color: $textColor;
+    opacity: 1;
+}
+
+#home-tab {
+    grid-area: home-tab;
+}
+
+#about-tab {
+    grid-area: about-tab;
+}
+
+#skills-tab {
+    grid-area: skills-tab;
+}
+
+#work-tab {
+    grid-area: work-tab;
+}
+
+#projects-tab {
+    grid-area: projects-tab;
+}
+
+#contact-tab {
+    grid-area: contact-tab;
 }

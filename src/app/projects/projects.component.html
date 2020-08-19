@@ -1,9 +1,44 @@
 <app-navigate></app-navigate>
-<app-loading id="loading"></app-loading>
+<!-- <app-loading id="loading"></app-loading> -->
 <div id="projects-document">
     <div id="projects-heading">My Projects</div>
-    <div id="projects-list">
-        <div id="project1">
+    <div id="projects">
+        <div id="project-circle">
+            <img id="project-img0" class="project-image" src="">
+            <img id="project-img1" class="project-image" src="">
+            <img id="project-img2" class="project-image" src="">
+            <img id="project-img3" class="project-image" src="">
+        </div>
+        <div id="project-description0">
+            <div id="project-title0"></div>
+            <br>
+            <div id="project-text0"></div>
+        </div>
+        <div id="project-description1">
+            <div id="project-title1"></div>
+            <br>
+            <div id="project-text1"></div>
+        </div>
+        <div id="project-description2">
+            <div id="project-title2"></div>
+            <br>
+            <div id="project-text2"></div>
+        </div>
+        <div id="project-description3">
+            <div id="project-title3"></div>
+            <br>
+            <div id="project-text3"></div>
+        </div>
+        <div id="project-list">
+            <div id="project-flash"></div>
+        </div>
+        <div id="project-change">
+            <div><button id="previous-button" class="change-button" mat-button (click) = "previousProject()"><mat-icon>expand_less</mat-icon> Previous</button></div>
+            <div><button id="next-button" class="change-button" mat-button (click) = "nextProject()"><mat-icon>expand_more</mat-icon> Next</button></div>
+        </div>
+    </div>
+    <!-- <div id="projects-list"> -->
+        <!-- <div id="project1">
             <div class="project-description">
                 <div class="project-heading">Tutorial</div>
                 <div class="bar"></div>
@@ -34,6 +69,6 @@
                 <div class="project-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
                 <div class="project-links"><mat-icon>link</mat-icon>&nbsp;&nbsp;<mat-icon>code</mat-icon></div>
             </div>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
 </div>

@@ -17,13 +17,14 @@
     width: 100vw;
     font-family: 'Source Code Pro', monospace;
     background-color: $backgroundColor;
+    overflow-y: hidden;
     display: grid;
     grid-template-rows: 20vh 5vh 1vh 74vh;
     grid-auto-columns: auto;
     grid-template-areas:    '.'
                             'projects-heading'
                             '.'
-                            'projects-list';
+                            'projects';
 }
 
 #projects-heading {
@@ -32,176 +33,328 @@
     @include center-content-vertically;
 }
 
-#projects-list {
-    grid-area: projects-list;
+#projects {
+    grid-area: projects;
     display: grid;
-    grid-template-columns: 15% 35% 35% 15%;
-    grid-template-rows: 4vh 30vh 30vh 10vh;
-    grid-template-areas:    '. . . .'
-                            '. project1 project2 .'
-                            '. project3 project4 .'
-                            '. . . .';
+    grid-template-rows: auto;
+    grid-auto-columns: 80vw auto;
+    grid-template-areas:    'project-list project-change';
 }
 
-#project1 {
-    grid-area: project1;
-    background-image: url("../../assets/tutorial.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+#project-list {
+    grid-area: project-list;
+    border-right: 60vw solid rgba($textColor, 0.5);
+    border-top: 27vh solid transparent;
+    border-bottom: 27vh solid transparent;
 }
 
-#project2 {
-    grid-area: project2;
-    background-image: url("../../assets/aditi.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-#project3 {
-    grid-area: project3;
-    background-image: url("../../assets/tutorial.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#project4 {
-    grid-area: project4;
-    background-image: url("../../assets/portfolio.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-img{
-    height: 100%;
-    width: 100%;
-    z-index: 0;
-}
-
-.project-description {
-    position: relative;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    color: $secondaryTextColor;
-    background-color: rgba($backgroundColor, 0.7);
+#project-circle {
+    position: absolute;
+    top: 47vh;
+    left: 10vw;
+    height: 250px;    
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid $textColor;
     z-index: 1;
-    border: 2px solid #000;
-    transition: all 0.5s ease;
+    background-color: $textColor;
+    // background-image: url('../../assets/tutorial.png');
+    // background-size: cover;
 }
 
-.project-heading {
+.project-image {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    transform-origin: left center;
+}
+
+#project-description0 {
+    position: absolute;
+    top: 47vh;
+    left: 38vw;
+    height: 30vh;
+    width: 40vw;
+    background-color: transparent;
+    text-align: right;
+    color: $secondaryTextColor;
+    z-index: 1;
+    padding-right: 2vw;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: left center;
+    // transform: rotateZ(0deg);
+}
+
+#project-img1 {
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+}
+
+#project-description1 {
+    position: absolute;
+    top: 47vh;
+    left: 38vw;
+    height: 30vh;
+    width: 10vw;
+    background-color: transparent;
+    text-align: right;
+    color: $secondaryTextColor;
+    z-index: 1;
+    padding-right: 2vw;
+    opacity: 0;
+    overflow: auto;
+    transform-origin: left center;
+    // transform: rotateZ(-90deg);
+}
+
+#project-description2 {
+    position: absolute;
+    top: 47vh;
+    left: 38vw;
+    height: 30vh;
+    width: 10vw;
+    background-color: transparent;
+    text-align: right;
+    color: $secondaryTextColor;
+    z-index: 1;
+    padding-right: 2vw;
+    opacity: 0;
+    overflow: auto;
+    transform-origin: left center;
+    // transform: rotateZ(-180deg);
+}
+
+#project-description3 {
+    position: absolute;
+    top: 47vh;
+    left: 38vw;
+    height: 30vh;
+    width: 10vw;
+    background-color: transparent;
+    text-align: right;
+    color: $secondaryTextColor;
+    z-index: 1;
+    padding-right: 2vw;
+    opacity: 0;
+    overflow: auto;
+    transform-origin: left center;
+    // transform: rotateZ(-270deg);
+}
+
+@keyframes project-description-next-entry-animation {
+    100% { width: 50vw; opacity: 1; transform: rotateZ(0deg); }
+}
+
+@keyframes project-description-next-exit-animation {
+    100% { width: 10vw; opacity: 0; transform: rotateZ(90deg); }
+}
+
+@keyframes project-description-previous-entry-animation {
+    100% { width: 50vw; opacity: 1; transform: rotateZ(0deg); }
+}
+
+@keyframes project-description-previous-exit-animation {
+    100% { width: 10vw; opacity: 0; transform: rotateZ(-90deg); }
+}
+
+#project-title {
     font-size: 2em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    transition: all 0.5s ease;
 }
 
-.bar {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 0;
-    border-top: 1px solid $secondaryTextColor;
-    -ms-transform: translate(-20%, -20%);
-    transform: translate(-20%, -20%);
+#project-text {
+    overflow: auto;
 }
 
-.project-text {
-    position: absolute;
-    top: 60%;
-    left: 30%;
-    overflow-y: auto;
-    opacity: 0;
-    font-size: 0.7em;
-    -ms-transform: translate(-30%, -60%);
-    transform: translate(-30%, -60%);
+#project-change {
+    grid-area: project-change;
+
 }
 
-.project-links {
-    float: right;
-    position: absolute;
-    top: 10%;
-    right: 20%;
-    opacity: 0;
-}
-
-mat-icon {
-    font-size: 1.5em;
-}
-
-.project-description:hover {
-    background-color: rgba($backgroundColor, 0.9);
-}
-
-.project-description:hover .project-heading {
-    font-size: 1em;
-    position: absolute;
-    top: 10%;
-    left: 10%;
+.change-button {
+    background-color: transparent;
+    @include center-content;
     color: $textColor;
-    -ms-transform: translate(-10%, -10%);
-    transform: translate(-10%, -10%);
 }
 
-.project-description:hover .bar {
-    animation: bar-animation 0.5s ease forwards;
+.change-icon {
+    font-size: 3em;
 }
+// #projects-list {
+//     grid-area: projects-list;
+//     display: grid;
+//     grid-template-columns: 15% 35% 35% 15%;
+//     grid-template-rows: 4vh 30vh 30vh 10vh;
+//     grid-template-areas:    '. . . .'
+//                             '. project1 project2 .'
+//                             '. project3 project4 .'
+//                             '. . . .';
+// }
 
-.project-description:hover .project-text {
-    animation: project-text-animation 0.5s ease forwards;
-}
+// #project1 {
+//     grid-area: project1;
+//     background-image: url("../../assets/tutorial.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
 
-.project-description:hover .project-links {
-    animation: project-text-animation 0.5s ease forwards;
-}
+// #project2 {
+//     grid-area: project2;
+//     background-image: url("../../assets/aditi.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
 
-@keyframes bar-animation {
-    100% { width: 80%; }
-}
+// #project3 {
+//     grid-area: project3;
+//     background-image: url("../../assets/tutorial.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
 
-@keyframes project-text-animation {
-    100% { opacity: 1; }
-}
+// #project4 {
+//     grid-area: project4;
+//     background-image: url("../../assets/portfolio.png");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
 
-@media only screen and (max-width: 1000px) {
-    #projects-document {
-        grid-template-rows: 10vh 5vh 1vh 85vh;
-        grid-auto-columns: auto;
-        grid-template-areas:    '.'
-                                'projects-heading'
-                                'projects-list';
-    }
+// img{
+//     height: 100%;
+//     width: 100%;
+//     z-index: 0;
+// }
 
-    #projects-list {
-        grid-template-columns: 15% 70% 15%;
-        grid-template-rows: 5vh 17.5vh 17.5vh 17.5vh 17.5vh 10vh;
-        grid-template-areas:    '. . .'
-                                '. project1 .' 
-                                '. project2 .'
-                                '. project3 .' 
-                                '. project4 .'
-                                '. . .';
-    }
+// .project-description {
+//     position: relative;
+//     top: 0;
+//     right: 0;
+//     height: 100%;
+//     width: 100%;
+//     color: $secondaryTextColor;
+//     background-color: rgba($backgroundColor, 0.7);
+//     z-index: 1;
+//     border: 2px solid #000;
+//     transition: all 0.5s ease;
+// }
 
-    .project-text {
-        position: absolute;
-        top: 75%;
-        left: 40%;
-        -ms-transform: translate(-30%, -75%);
-        transform: translate(-30%, -75%);
-    }
-}
+// .project-heading {
+//     font-size: 2em;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     -ms-transform: translate(-50%, -50%);
+//     transform: translate(-50%, -50%);
+//     transition: all 0.5s ease;
+// }
 
-@media only screen and (max-width: 1100px) {
-    .project-text {
-        position: absolute;
-        top: 70%;
-        left: 30%;
-        -ms-transform: translate(-30%, -70%);
-        transform: translate(-30%, -70%);
-    }
-}
+// .bar {
+//     position: absolute;
+//     top: 20%;
+//     left: 20%;
+//     width: 0;
+//     border-top: 1px solid $secondaryTextColor;
+//     -ms-transform: translate(-20%, -20%);
+//     transform: translate(-20%, -20%);
+// }
+
+// .project-text {
+//     position: absolute;
+//     top: 60%;
+//     left: 30%;
+//     overflow-y: auto;
+//     opacity: 0;
+//     font-size: 0.7em;
+//     -ms-transform: translate(-30%, -60%);
+//     transform: translate(-30%, -60%);
+// }
+
+// .project-links {
+//     float: right;
+//     position: absolute;
+//     top: 10%;
+//     right: 20%;
+//     opacity: 0;
+// }
+
+// mat-icon {
+//     font-size: 1.5em;
+// }
+
+// .project-description:hover {
+//     background-color: rgba($backgroundColor, 0.9);
+// }
+
+// .project-description:hover .project-heading {
+//     font-size: 1em;
+//     position: absolute;
+//     top: 10%;
+//     left: 10%;
+//     color: $textColor;
+//     -ms-transform: translate(-10%, -10%);
+//     transform: translate(-10%, -10%);
+// }
+
+// .project-description:hover .bar {
+//     animation: bar-animation 0.5s ease forwards;
+// }
+
+// .project-description:hover .project-text {
+//     animation: project-text-animation 0.5s ease forwards;
+// }
+
+// .project-description:hover .project-links {
+//     animation: project-text-animation 0.5s ease forwards;
+// }
+
+// @keyframes bar-animation {
+//     100% { width: 80%; }
+// }
+
+// @keyframes project-text-animation {
+//     100% { opacity: 1; }
+// }
+
+// @media only screen and (max-width: 1000px) {
+//     #projects-document {
+//         grid-template-rows: 10vh 5vh 1vh 85vh;
+//         grid-auto-columns: auto;
+//         grid-template-areas:    '.'
+//                                 'projects-heading'
+//                                 'projects-list';
+//     }
+
+//     #projects-list {
+//         grid-template-columns: 15% 70% 15%;
+//         grid-template-rows: 5vh 17.5vh 17.5vh 17.5vh 17.5vh 10vh;
+//         grid-template-areas:    '. . .'
+//                                 '. project1 .' 
+//                                 '. project2 .'
+//                                 '. project3 .' 
+//                                 '. project4 .'
+//                                 '. . .';
+//     }
+
+//     .project-text {
+//         position: absolute;
+//         top: 75%;
+//         left: 40%;
+//         -ms-transform: translate(-30%, -75%);
+//         transform: translate(-30%, -75%);
+//     }
+// }
+
+// @media only screen and (max-width: 1100px) {
+//     .project-text {
+//         position: absolute;
+//         top: 70%;
+//         left: 30%;
+//         -ms-transform: translate(-30%, -70%);
+//         transform: translate(-30%, -70%);
+//     }
+// }

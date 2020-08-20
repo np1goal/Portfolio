@@ -43,37 +43,48 @@
 
 #project-list {
     grid-area: project-list;
-    border-right: 60vw solid rgba($textColor, 0.5);
+    border-right: 60vw solid rgba($secondaryBackgroundColor, 0.5);
     border-top: 27vh solid transparent;
     border-bottom: 27vh solid transparent;
 }
 
-
-#project-circle {
+#circle-div-vertical {
     position: absolute;
-    top: 47vh;
+    height: 74vh;
+    width: 30vh;
+    @include center-content-vertically;
+}
+
+#circle-div-horizontal {
+    display: none;
+}
+
+#project-circle-vertical {
+    position: absolute;
+    height: 30vh;    
+    width: 30vh;
     left: 10vw;
-    height: 250px;    
-    width: 250px;
     border-radius: 50%;
     border: 2px solid $textColor;
     z-index: 1;
-    background-color: $textColor;
-    // background-image: url('../../assets/tutorial.png');
-    // background-size: cover;
+    background-color: $secondaryBackgroundColor;
+}
+
+#project-circle-horizontal {
+    display: none;
 }
 
 .project-image {
     border-radius: 50%;
-    height: 250px;
-    width: 250px;
+    height: 30vh;
+    width: 30vh;
     position: absolute;
     top: 0vh;
     left: 0vw;
     transform-origin: left center;
 }
 
-#project-description0 {
+#project-description0-vertical {
     position: absolute;
     top: 47vh;
     left: 38vw;
@@ -87,16 +98,24 @@
     opacity: 1;
     overflow: auto;
     transform-origin: left center;
-    // transform: rotateZ(0deg);
 }
 
-#project-img1 {
+#project-description0-horizontal {
     position: absolute;
-    top: 0vh;
-    left: 0vw;
+    top: 60vh;
+    left: 20vw;
+    height: 38vh;
+    background-color: transparent;
+    text-align: left;
+    color: $secondaryTextColor;
+    z-index: 1;
+    margin-left: 2vw;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: top center;
 }
 
-#project-description1 {
+#project-description1-vertical {
     position: absolute;
     top: 47vh;
     left: 38vw;
@@ -113,7 +132,22 @@
     // transform: rotateZ(-90deg);
 }
 
-#project-description2 {
+#project-description1-horizontal {
+    position: absolute;
+    top: 60vh;
+    left: 20vw;
+    height: 38vh;
+    background-color: transparent;
+    text-align: left;
+    color: $secondaryTextColor;
+    z-index: 1;
+    margin-left: 2vw;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: top center;
+}
+
+#project-description2-vertical {
     position: absolute;
     top: 47vh;
     left: 38vw;
@@ -130,7 +164,23 @@
     // transform: rotateZ(-180deg);
 }
 
-#project-description3 {
+#project-description2-horizontal {
+    position: absolute;
+    top: 60vh;
+    left: 20vw;
+    height: 38vh;
+    width: 30vw;
+    background-color: transparent;
+    text-align: left;
+    color: $secondaryTextColor;
+    z-index: 1;
+    margin-left: 2vw;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: top center;
+}
+
+#project-description3-vertical {
     position: absolute;
     top: 47vh;
     left: 38vw;
@@ -145,6 +195,21 @@
     overflow: auto;
     transform-origin: left center;
     // transform: rotateZ(-270deg);
+}
+
+#project-description3-horizontal {
+    position: absolute;
+    top: 60vh;
+    left: 20vw;
+    height: 38vh;
+    background-color: transparent;
+    text-align: left;
+    color: $secondaryTextColor;
+    z-index: 1;
+    margin-left: 2vw;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: top center;
 }
 
 @keyframes project-description-next-entry-animation {
@@ -173,7 +238,7 @@
 
 #project-change {
     grid-area: project-change;
-
+    z-index: 2;
 }
 
 .change-button {
@@ -182,179 +247,174 @@
     color: $textColor;
 }
 
+.change-button:disabled {
+    color: rgba($textColor, 0.6);
+}
+
 .change-icon {
     font-size: 3em;
 }
-// #projects-list {
-//     grid-area: projects-list;
-//     display: grid;
-//     grid-template-columns: 15% 35% 35% 15%;
-//     grid-template-rows: 4vh 30vh 30vh 10vh;
-//     grid-template-areas:    '. . . .'
-//                             '. project1 project2 .'
-//                             '. project3 project4 .'
-//                             '. . . .';
-// }
 
-// #project1 {
-//     grid-area: project1;
-//     background-image: url("../../assets/tutorial.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
+@media only screen and (max-width: 900px) {
+    #projects-document {
+        grid-template-rows: 10vh 5vh 1vh 84vh;
+    }
 
-// #project2 {
-//     grid-area: project2;
-//     background-image: url("../../assets/aditi.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
+    #projects {
+        grid-template-rows: 10% 90%;
+        grid-auto-columns: auto;
+        grid-template-areas:    'project-change'
+                                'project-list';
+    }
 
-// #project3 {
-//     grid-area: project3;
-//     background-image: url("../../assets/tutorial.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
+    #project-list {
+        grid-area: project-list;
+        border-right: 0vw solid transparent;
+        border-left: 0vw solid transparent;
+        border-top: 0vh solid transparent;
+        border-bottom: 0vh solid rgba($textColor, 0.5);
+        background-color: rgba($secondaryBackgroundColor, 0.5);
+    }
 
-// #project4 {
-//     grid-area: project4;
-//     background-image: url("../../assets/portfolio.png");
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
+    #circle-div-vertical {
+        display: none;
+    }
 
-// img{
-//     height: 100%;
-//     width: 100%;
-//     z-index: 0;
-// }
+    #circle-div-horizontal {
+        display: block;
+        position: absolute;
+        height: 31vw;
+        width: 100vw;
+        margin-top: 5vh;
+        @include center-content-horizontally;
+    }
 
-// .project-description {
-//     position: relative;
-//     top: 0;
-//     right: 0;
-//     height: 100%;
-//     width: 100%;
-//     color: $secondaryTextColor;
-//     background-color: rgba($backgroundColor, 0.7);
-//     z-index: 1;
-//     border: 2px solid #000;
-//     transition: all 0.5s ease;
-// }
+    #project-circle-vertical {
+        display: none;
+    }
 
-// .project-heading {
-//     font-size: 2em;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     -ms-transform: translate(-50%, -50%);
-//     transform: translate(-50%, -50%);
-//     transition: all 0.5s ease;
-// }
+    #project-circle-horizontal {
+        display: block;
+        position: absolute;
+        height: 31vw;    
+        width: 31vw;
+        border-radius: 50%;
+        border: 2px solid $textColor;
+        z-index: 1;
+        background-color: $textColor;
+    }
 
-// .bar {
-//     position: absolute;
-//     top: 20%;
-//     left: 20%;
-//     width: 0;
-//     border-top: 1px solid $secondaryTextColor;
-//     -ms-transform: translate(-20%, -20%);
-//     transform: translate(-20%, -20%);
-// }
+    .project-image {
+        height: 31vw;    
+        width: 31vw;
+    }
 
-// .project-text {
-//     position: absolute;
-//     top: 60%;
-//     left: 30%;
-//     overflow-y: auto;
-//     opacity: 0;
-//     font-size: 0.7em;
-//     -ms-transform: translate(-30%, -60%);
-//     transform: translate(-30%, -60%);
-// }
+    #project-change .change-button{
+        float: right;
+    }
+}
 
-// .project-links {
-//     float: right;
-//     position: absolute;
-//     top: 10%;
-//     right: 20%;
-//     opacity: 0;
-// }
+@media only screen and (max-width: 700px) {
+    
+    #circle-div-horizontal {
+        height: 35vw;
+    }
 
-// mat-icon {
-//     font-size: 1.5em;
-// }
+    #project-circle-horizontal {
+        height: 35vw;    
+        width: 35vw;
+    }
 
-// .project-description:hover {
-//     background-color: rgba($backgroundColor, 0.9);
-// }
+    .project-image {
+        height: 35vw;    
+        width: 35vw;
+    }
+}
 
-// .project-description:hover .project-heading {
-//     font-size: 1em;
-//     position: absolute;
-//     top: 10%;
-//     left: 10%;
-//     color: $textColor;
-//     -ms-transform: translate(-10%, -10%);
-//     transform: translate(-10%, -10%);
-// }
+@media only screen and (max-width: 600px) {
+    
+    #circle-div-horizontal {
+        height: 40vw;
+    }
 
-// .project-description:hover .bar {
-//     animation: bar-animation 0.5s ease forwards;
-// }
+    #project-circle-horizontal {
+        height: 40vw;    
+        width: 40vw;
+    }
 
-// .project-description:hover .project-text {
-//     animation: project-text-animation 0.5s ease forwards;
-// }
+    .project-image {
+        height: 40vw;    
+        width: 40vw;
+    }
+}
 
-// .project-description:hover .project-links {
-//     animation: project-text-animation 0.5s ease forwards;
-// }
+@media only screen and (max-width: 500px) {
+    
+    #circle-div-horizontal {
+        height: 50vw;
+    }
 
-// @keyframes bar-animation {
-//     100% { width: 80%; }
-// }
+    #project-circle-horizontal {
+        height: 50vw;    
+        width: 50vw;
+    }
 
-// @keyframes project-text-animation {
-//     100% { opacity: 1; }
-// }
+    .project-image {
+        height: 50vw;    
+        width: 50vw;
+    }
+}
 
-// @media only screen and (max-width: 1000px) {
-//     #projects-document {
-//         grid-template-rows: 10vh 5vh 1vh 85vh;
-//         grid-auto-columns: auto;
-//         grid-template-areas:    '.'
-//                                 'projects-heading'
-//                                 'projects-list';
-//     }
+@media only screen and (max-width: 400px) {
+    
+    #circle-div-horizontal {
+        height: 60vw;
+        margin-top: 10vh;
+    }
 
-//     #projects-list {
-//         grid-template-columns: 15% 70% 15%;
-//         grid-template-rows: 5vh 17.5vh 17.5vh 17.5vh 17.5vh 10vh;
-//         grid-template-areas:    '. . .'
-//                                 '. project1 .' 
-//                                 '. project2 .'
-//                                 '. project3 .' 
-//                                 '. project4 .'
-//                                 '. . .';
-//     }
+    #project-circle-horizontal {
+        height: 60vw;    
+        width: 60vw;
+    }
 
-//     .project-text {
-//         position: absolute;
-//         top: 75%;
-//         left: 40%;
-//         -ms-transform: translate(-30%, -75%);
-//         transform: translate(-30%, -75%);
-//     }
-// }
+    .project-image {
+        height: 60vw;    
+        width: 60vw;
+    }
+}
 
-// @media only screen and (max-width: 1100px) {
-//     .project-text {
-//         position: absolute;
-//         top: 70%;
-//         left: 30%;
-//         -ms-transform: translate(-30%, -70%);
-//         transform: translate(-30%, -70%);
-//     }
-// }
+@media only screen and (max-width: 300px) {
+    
+    #circle-div-horizontal {
+        height: 70vw;
+        margin-top: 15vh;
+    }
+
+    #project-circle-horizontal {
+        height: 70vw;    
+        width: 70vw;
+    }
+
+    .project-image {
+        height: 70vw;    
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+    
+    #circle-div-horizontal {
+        height: 90vw;
+        // margin-top: 20vh;
+        // margin-left: 20vw;
+    }
+
+    #project-circle-horizontal {
+        height: 90vw;    
+        width: 90vw;
+    }
+    .project-image {
+        height: 90vw;    
+        width: 90vw;
+    }
+}

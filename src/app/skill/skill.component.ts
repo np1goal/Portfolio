@@ -24,9 +24,9 @@ export class SkillComponent implements OnInit {
   }
 
   changeTab(topic) {
-    document.getElementById(this.activeTopic).style.color = '#d4d4dc';
+    document.getElementById(this.activeTopic).style.color = '#302718';
     document.getElementById(this.activeTopic).style.animation = 'topic-border-remove-animation 0.1s forwards';
-    document.getElementById(topic).style.color = '#feda6a';
+    document.getElementById(topic).style.color = '#009F55';
     document.getElementById(topic).style.animation = 'topic-border-animation 0.1s forwards';
 
     this.activeTopic = topic;

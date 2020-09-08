@@ -47,6 +47,8 @@ export class ProjectsComponent implements OnInit {
     console.log(this.projectData);
     for(var i = 0; i < 4; i++) {
       if (this.projectData[3].deg != 0) {
+        document.getElementById('previous-button').style.opacity = '1';
+        document.getElementById('next-button').style.opacity = '1';
         this.projectData[i].deg = this.projectData[i].deg + 90;
         if (window.matchMedia("(max-width: 900px)").matches || window.matchMedia("(max-width: 600px)").matches) { //Check for browser width
           this.projectLayoutStyling('project-description'+i.toString()+'-vertical', 'project-title'+i.toString()+'-vertical', 'project-text'+i.toString()+'-vertical', 'project-img'+i.toString()+'-vertical');
@@ -63,6 +65,8 @@ export class ProjectsComponent implements OnInit {
             this.projectStyling('project-description'+i.toString()+'-vertical', '0', '10vw', 'rotateZ('+this.projectData[i].deg.toString()+'deg)', 'all 1s', 'project-title'+i.toString()+'-vertical', '', 'project-text'+i.toString()+'-vertical', '', 'project-img'+i.toString()+'-vertical', 'rotateZ('+this.projectData[i].deg.toString()+'deg)', '0', 'all 1s');
           }
         }
+      } else {
+        document.getElementById('next-button').style.opacity = '0.5';
       }
     }
   }
@@ -71,6 +75,8 @@ export class ProjectsComponent implements OnInit {
     console.log(this.projectData);
     for(var i = 3; i >= 0; i--) {
       if (this.projectData[0].deg != 0) {
+        document.getElementById('previous-button').style.opacity = '1';
+        document.getElementById('next-button').style.opacity = '1';
         this.projectData[i].deg = this.projectData[i].deg - 90;
         if (window.matchMedia("(max-width: 900px)").matches || window.matchMedia("(max-width: 600px)").matches) { //Check for browser width
           this.projectLayoutStyling('project-description'+i.toString()+'-vertical', 'project-title'+i.toString()+'-vertical', 'project-text'+i.toString()+'-vertical', 'project-img'+i.toString()+'-vertical');
@@ -87,6 +93,8 @@ export class ProjectsComponent implements OnInit {
             this.projectStyling('project-description'+i.toString()+'-vertical', '0', '10vw', 'rotateZ('+this.projectData[i].deg.toString()+'deg)', 'all 1s', 'project-title'+i.toString()+'-vertical', '', 'project-text'+i.toString()+'-vertical', '', 'project-img'+i.toString()+'-vertical', 'rotateZ('+this.projectData[i].deg.toString()+'deg)', '0', 'all 1s');
           }
         }
+      } else {
+        document.getElementById('previous-button').style.opacity = '0.5';
       }
     }
   }
@@ -104,6 +112,8 @@ export class ProjectsComponent implements OnInit {
     document.getElementById(projectDescriptionId).style.transform = projectDescriptionTransform;
     document.getElementById(projectDescriptionId).style.transition = projectDescriptionTransition; 
     document.getElementById(projectTitleId).textContent = projectTitleName;
+    document.getElementById(projectTitleId).style.fontWeight = 'bold';
+    document.getElementById(projectTitleId).style.fontSize = '1.2em';
     document.getElementById(projectTextId).textContent = projectTextDescription;
     document.getElementById(projectImgId).style.transform = projectImgTransform;
     document.getElementById(projectImgId).style.opacity = projectImgOpacity;

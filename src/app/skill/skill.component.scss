@@ -84,9 +84,10 @@
 #skills-description {
     grid-area: skills-description;
     display: grid;
-    grid-template-rows: 10% auto;
+    grid-template-rows: 10% 45% auto;
     grid-template-areas:    'skill-topic'
-                            'skill-description';
+                            'skill-description'
+                            'skill-concepts';
 }
 
 #skill-topic {
@@ -102,6 +103,13 @@
     color: $secondaryTextColor;
     margin-left: 2vw;
     margin-top: 1vh;
+    overflow: auto;
+}
+
+#skill-concepts {
+    grid-area: skill-concepts;
+    font-size: 1em;
+    color: $secondaryTextColor;
     overflow: auto;
 }
 

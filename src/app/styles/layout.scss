@@ -23,11 +23,13 @@
 }
 
 @mixin heading-style {
-    display: inline;
     align-items: center;
     color: $textColor;
-    margin-left: 7vw;
     font-size: 2em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 7vw 68vw 20vw 5vw;
+    grid-template-areas: '. title contact-me .';
 }
 
 @mixin bar-style {

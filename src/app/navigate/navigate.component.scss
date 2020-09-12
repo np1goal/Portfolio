@@ -14,8 +14,8 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 5vw 15vw 15vw 15vw 15vw 15vw 15vw 5vw;
-    grid-template-areas: '. home-tab about-tab skills-tab work-tab projects-tab contact-tab .';
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw 20vw;
+    grid-template-areas: 'home-tab about-tab skills-tab work-tab projects-tab';
 }
 
 .nav-button {
@@ -82,6 +82,8 @@ a {
     grid-area: projects-tab;
 }
 
-#contact-tab {
-    grid-area: contact-tab;
+@media only screen and(max-width: 260px) {
+    #navigation {
+        display: none;
+    }
 }

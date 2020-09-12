@@ -93,3 +93,9 @@
 @keyframes loading-bar-animation {
     100% {width: 80%;}
 }
+
+@media only screen and(max-width: 260px) {
+    #loading {
+        display: none;
+    }
+}

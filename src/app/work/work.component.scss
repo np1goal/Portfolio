@@ -42,7 +42,18 @@
 #work-heading {
     grid-area: work-heading;
     @include heading-style;
+}
+
+#document-title {
+    grid-area: title;
     @include center-content-vertically;
+}
+
+#contact-me {
+    grid-area: contact-me;
+    float: right;
+    margin-right: 5vw;
+    z-index: 2;
 }
 
 #work-experience {
@@ -273,5 +284,11 @@
         left: 10%;
         height: 40%;
         width: 80%;
+    }
+}
+
+@media only screen and(max-width: 260px) {
+    #work-document {
+        display: none;
     }
 }

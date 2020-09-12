@@ -11,3 +11,9 @@
 @keyframes navigation-bar-animation {
     100% { opacity: 1; }
 }
+
+@media only screen and(max-width: 260px) {
+    #website {
+        display: none;
+    }
+}

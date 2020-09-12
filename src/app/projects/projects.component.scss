@@ -32,7 +32,18 @@
 #projects-heading {
     grid-area: projects-heading;
     @include heading-style;
+}
+
+#document-title {
+    grid-area: title;
     @include center-content-vertically;
+}
+
+#contact-me {
+    grid-area: contact-me;
+    float: right;
+    margin-right: 5vw;
+    z-index: 2;
 }
 
 #projects {
@@ -125,3 +136,8 @@ a {
     padding-right: 3px;
 }
 
+@media only screen and(max-width: 260px) {
+    #projects-document {
+        display: none;
+    }
+}

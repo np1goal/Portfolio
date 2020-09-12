@@ -30,7 +30,18 @@
 #skill-heading {
     grid-area: skill-heading;
     @include heading-style;
+}
+
+#document-title {
+    grid-area: title;
     @include center-content-vertically;
+}
+
+#contact-me {
+    grid-area: contact-me;
+    float: right;
+    margin-right: 5vw;
+    z-index: 2;
 }
 
 #skill-content {
@@ -386,98 +397,8 @@
      }
 }
 
-@media only screen and (max-width: 260px) {
-
-    #skill-content {
-        grid-template-rows: 55% 5% 30%;
-    }
-    
-    #skills-topics {
-        font-size: 0.5em;
-    }
-
-    #skill-topic {
-        font-size: 0.9em;
-    }
-     
-    #skill-description {
-        font-size: 0.7em;
-    }
-
-    #skills-cube-section {
-        @include center-content-vertically;
-    }
-}
-
-@media only screen and (max-width: 210px) {
-
-    #skill-heading {
-        font-size: 1.5em;
-    }
-    
-    #skills-topics {
-        font-size: 0.4em;
-    }
-
-    #skill-topic {
-        font-size: 0.8em;
-     }
-     
-     #skill-description {
-         font-size: 0.6em;
-     }
-}
-
-@media only screen and (max-width: 160px) {
-
-    #skill-heading {
-        font-size: 1.2em;
-    }
-    
-    #skills-topics {
-        font-size: 0.2em;
-    }
-
-    #skill-topic {
-        font-size: 0.6em;
-     }
-     
-     #skill-description {
-         font-size: 0.4em;
-         overflow-x: auto;
-     }
-
-    #scene {
-        width: 50px;
-        height: 50px;
-        perspective: 150px;
-    }
-      
-    #cube {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-style: preserve-3d;
-        transform: translateZ(-25px);
-        // animation: animation 5s ease infinite;
-    }
-    
-    .cube__face {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        border: 2px solid $tertiaryTextColor;
-        background-color: rgba($secondaryBackgroundColor, 0.8);
-    }
-    
-    #html-cube-face { transform: rotateY(  0deg) translateZ(25px); }
-    #css-cube-face { transform: rotateY( -90deg) translateZ(25px); }
-    #javascript-cube-face { transform: rotateY(180deg) translateZ(25px); }
-    #angular-cube-face { transform: rotateY(90deg) translateZ(25px); }
-    #scsssass-cube-face { transform: rotateX( 90deg) translateZ(25px); }
-    #threejs-cube-face { transform: rotateX(-90deg) translateZ(25px); }
-
-    img {
-        height: 20px;
+@media only screen and(max-width: 260px) {
+    #skill-document {
+        display: none;
     }
 }

@@ -16,7 +16,9 @@
     height: 100vh;
     width: 100vw;
     font-family: 'Source Code Pro', monospace;
-    background-color: $backgroundColor;
+    background-image: url('../../assets/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: hidden;
     display: grid;
     grid-template-rows: 20vh 5vh 1vh 74vh;
@@ -36,385 +38,90 @@
 #projects {
     grid-area: projects;
     display: grid;
-    grid-template-rows: auto;
-    grid-auto-columns: 80vw auto;
-    grid-template-areas:    'project-list project-change';
-}
-
-#project-list {
-    grid-area: project-list;
-    border-right: 60vw solid rgba($secondaryBackgroundColor, 0.5);
-    border-top: 27vh solid transparent;
-    border-bottom: 27vh solid transparent;
-}
-
-#circle-div-vertical {
-    position: absolute;
-    height: 74vh;
-    width: 30vh;
-    @include center-content-vertically;
-}
-
-#circle-div-horizontal {
-    display: none;
-}
-
-#project-circle-vertical {
-    position: absolute;
-    height: 30vh;    
-    width: 30vh;
-    left: 10vw;
-    border-radius: 50%;
-    border: 2px solid $textColor;
-    z-index: 1;
-    background-color: $secondaryBackgroundColor;
-}
-
-#project-circle-horizontal {
-    display: none;
-}
-
-.project-image {
-    border-radius: 50%;
-    height: 30vh;
-    width: 30vh;
-    position: absolute;
-    top: 0vh;
-    left: 0vw;
-    transform-origin: left center;
-}
-
-#project-description0-vertical {
-    position: absolute;
-    top: 47vh;
-    left: 38vw;
-    height: 30vh;
-    width: 40vw;
-    background-color: transparent;
-    text-align: right;
-    color: $secondaryTextColor;
-    z-index: 1;
-    padding-right: 2vw;
-    opacity: 1;
-    overflow: auto;
-    transform-origin: left center;
-}
-
-#project-description0-horizontal {
-    position: absolute;
-    top: 60vh;
-    left: 20vw;
-    height: 38vh;
-    background-color: transparent;
-    text-align: left;
-    color: $secondaryTextColor;
-    z-index: 1;
-    margin-left: 2vw;
-    opacity: 1;
-    overflow: auto;
-    transform-origin: top center;
-}
-
-#project-description1-vertical {
-    position: absolute;
-    top: 47vh;
-    left: 38vw;
-    height: 30vh;
-    width: 10vw;
-    background-color: transparent;
-    text-align: right;
-    color: $secondaryTextColor;
-    z-index: 1;
-    padding-right: 2vw;
-    opacity: 0;
-    overflow: auto;
-    transform-origin: left center;
-    // transform: rotateZ(-90deg);
-}
-
-#project-description1-horizontal {
-    position: absolute;
-    top: 60vh;
-    left: 20vw;
-    height: 38vh;
-    background-color: transparent;
-    text-align: left;
-    color: $secondaryTextColor;
-    z-index: 1;
-    margin-left: 2vw;
-    opacity: 1;
-    overflow: auto;
-    transform-origin: top center;
-}
-
-#project-description2-vertical {
-    position: absolute;
-    top: 47vh;
-    left: 38vw;
-    height: 30vh;
-    width: 10vw;
-    background-color: transparent;
-    text-align: right;
-    color: $secondaryTextColor;
-    z-index: 1;
-    padding-right: 2vw;
-    opacity: 0;
-    overflow: auto;
-    transform-origin: left center;
-    // transform: rotateZ(-180deg);
-}
-
-#project-description2-horizontal {
-    position: absolute;
-    top: 60vh;
-    left: 20vw;
-    height: 38vh;
-    width: 30vw;
-    background-color: transparent;
-    text-align: left;
-    color: $secondaryTextColor;
-    z-index: 1;
-    margin-left: 2vw;
-    opacity: 1;
-    overflow: auto;
-    transform-origin: top center;
-}
-
-#project-description3-vertical {
-    position: absolute;
-    top: 47vh;
-    left: 38vw;
-    height: 30vh;
-    width: 10vw;
-    background-color: transparent;
-    text-align: right;
-    color: $secondaryTextColor;
-    z-index: 1;
-    padding-right: 2vw;
-    opacity: 0;
-    overflow: auto;
-    transform-origin: left center;
-    // transform: rotateZ(-270deg);
-}
-
-#project-description3-horizontal {
-    position: absolute;
-    top: 60vh;
-    left: 20vw;
-    height: 38vh;
-    background-color: transparent;
-    text-align: left;
-    color: $secondaryTextColor;
-    z-index: 1;
-    margin-left: 2vw;
-    opacity: 1;
-    overflow: auto;
-    transform-origin: top center;
-}
-
-@keyframes project-description-next-entry-animation {
-    100% { width: 50vw; opacity: 1; transform: rotateZ(0deg); }
-}
-
-@keyframes project-description-next-exit-animation {
-    100% { width: 10vw; opacity: 0; transform: rotateZ(90deg); }
-}
-
-@keyframes project-description-previous-entry-animation {
-    100% { width: 50vw; opacity: 1; transform: rotateZ(0deg); }
-}
-
-@keyframes project-description-previous-exit-animation {
-    100% { width: 10vw; opacity: 0; transform: rotateZ(-90deg); }
-}
-
-#project-title {
-    font-size: 2em;
-}
-
-#project-text {
-    overflow: auto;
+    grid-template-rows: 10% 90%;
+    grid-auto-columns: auto;
+    grid-template-areas:    'project-change'
+                            'project-list';
 }
 
 #project-change {
     grid-area: project-change;
+    padding-left: 5vw;
     z-index: 2;
 }
 
 .change-button {
+    float: left;
     background-color: transparent;
     @include center-content;
     color: $textColor;
-}
-
-.change-button:disabled {
-    color: rgba($textColor, 0.6);
 }
 
 .change-icon {
     font-size: 3em;
 }
 
-@media only screen and (max-width: 900px) {
-    #projects-document {
-        grid-template-rows: 10vh 5vh 1vh 84vh;
-    }
-
-    #projects {
-        grid-template-rows: 10% 90%;
-        grid-auto-columns: auto;
-        grid-template-areas:    'project-change'
-                                'project-list';
-    }
-
-    #project-list {
-        grid-area: project-list;
-        border-right: 0vw solid transparent;
-        border-left: 0vw solid transparent;
-        border-top: 0vh solid transparent;
-        border-bottom: 0vh solid rgba($textColor, 0.5);
-        background-color: rgba($secondaryBackgroundColor, 0.5);
-    }
-
-    #circle-div-vertical {
-        display: none;
-    }
-
-    #circle-div-horizontal {
-        display: block;
-        position: absolute;
-        height: 31vw;
-        width: 100vw;
-        margin-top: 5vh;
-        @include center-content-horizontally;
-    }
-
-    #project-circle-vertical {
-        display: none;
-    }
-
-    #project-circle-horizontal {
-        display: block;
-        position: absolute;
-        height: 31vw;    
-        width: 31vw;
-        border-radius: 50%;
-        border: 2px solid $textColor;
-        z-index: 1;
-        background-color: $textColor;
-    }
-
-    .project-image {
-        height: 31vw;    
-        width: 31vw;
-    }
-
-    #project-change .change-button{
-        float: right;
-    }
+#project-list {
+    grid-area: project-list;
 }
 
-@media only screen and (max-width: 700px) {
-    
-    #circle-div-horizontal {
-        height: 35vw;
-    }
-
-    #project-circle-horizontal {
-        height: 35vw;    
-        width: 35vw;
-    }
-
-    .project-image {
-        height: 35vw;    
-        width: 35vw;
-    }
+#circle-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    @include center-content-horizontally;
 }
 
-@media only screen and (max-width: 600px) {
-    
-    #circle-div-horizontal {
-        height: 40vw;
-    }
-
-    #project-circle-horizontal {
-        height: 40vw;    
-        width: 40vw;
-    }
-
-    .project-image {
-        height: 40vw;    
-        width: 40vw;
-    }
+#project-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;    
+    width: 25vh;
+    border-radius: 50%;
+    z-index: 1;
 }
 
-@media only screen and (max-width: 500px) {
-    
-    #circle-div-horizontal {
-        height: 50vw;
-    }
-
-    #project-circle-horizontal {
-        height: 50vw;    
-        width: 50vw;
-    }
-
-    .project-image {
-        height: 50vw;    
-        width: 50vw;
-    }
+.project-image {
+    position: absolute;
+    border-radius: 50%;
+    height: 25vh;
+    width: 25vh;
+    z-index: 2;
+    border: 2px solid $textColor;
+    transform-origin: left center;
 }
 
-@media only screen and (max-width: 400px) {
-    
-    #circle-div-horizontal {
-        height: 60vw;
-        margin-top: 10vh;
-    }
-
-    #project-circle-horizontal {
-        height: 60vw;    
-        width: 60vw;
-    }
-
-    .project-image {
-        height: 60vw;    
-        width: 60vw;
-    }
+#description-div {
+    height: 100%;
+    width: 100%;
 }
 
-@media only screen and (max-width: 300px) {
-    
-    #circle-div-horizontal {
-        height: 70vw;
-        margin-top: 15vh;
-    }
-
-    #project-circle-horizontal {
-        height: 70vw;    
-        width: 70vw;
-    }
-
-    .project-image {
-        height: 70vw;    
-        width: 70vw;
-    }
+.project-description {
+    position: absolute;
+    top: 60vh;
+    left: 10%;
+    height: 35vh;
+    width: 80%;
+    border-radius: 5px;
+    padding: 2vh;
+    background-color: rgba(#0c042e, 0.8);
+    text-align: left;
+    color: $secondaryTextColor;
+    z-index: 1;
+    opacity: 1;
+    overflow: auto;
+    transform-origin: left center;
 }
 
-@media only screen and (max-width: 200px) {
-    
-    #circle-div-horizontal {
-        height: 90vw;
-        // margin-top: 20vh;
-        // margin-left: 20vw;
-    }
-
-    #project-circle-horizontal {
-        height: 90vw;    
-        width: 90vw;
-    }
-    .project-image {
-        height: 90vw;    
-        width: 90vw;
-    }
+.project-title {
+    color: $tertiaryTextColor;
+    letter-spacing: 2px;
 }
+
+a {
+    text-decoration: none;
+    color: $tertiaryTextColor;
+    padding-right: 3px;
+}
+

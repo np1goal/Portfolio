@@ -16,7 +16,9 @@
     height: 100vh;
     width: 100vw;
     font-family: 'Source Code Pro', monospace;
-    background-color: $backgroundColor;
+    background-image: url('../../assets/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     grid-template-rows: 20vh 5vh 74vh;
     grid-auto-columns: auto;
@@ -84,7 +86,7 @@
 #skills-description {
     grid-area: skills-description;
     display: grid;
-    grid-template-rows: 10% 45% auto;
+    grid-template-rows: 10% 35% auto;
     grid-template-areas:    'skill-topic'
                             'skill-description'
                             'skill-concepts';
@@ -138,8 +140,8 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 1px solid $tertiaryTextColor;
-    background-color: rgba($secondaryBackgroundColor, 0.95);
+    border: 1px solid $textColor;
+    background-color: rgba($tertiaryBackgroundColor, 0.95);
     display: grid;
     grid-template-rows: 50% 30% 20%;
     grid-template-areas:    'cube-img'
@@ -160,43 +162,43 @@
 .bar {
     height: 20%;
     width: 80%;
-    border: 2px solid $textColor;
+    border: 2px solid $secondaryTextColor;
 }
 
 #html-bar {
     height: 100%;
     width: 95%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 #css-bar {
     height: 100%;
     width: 95%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 #javascript-bar {
     height: 100%;
     width: 90%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 #angular-bar {
     height: 100%;
     width: 80%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 #scsssass-bar {
     height: 100%;
     width: 75%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 #threejs-bar {
     height: 100%;
     width: 40%;
-    background-color: $textColor;
+    background-color: $secondaryTextColor;
 }
 
 .cube-percent {
@@ -204,7 +206,7 @@
     // @include center-content-vertically;
     text-align: right;
     margin-right: 10%;
-    color: $textColor;
+    color: $secondaryTextColor;
 }
 
 #html-cube-face { transform: rotateY(  0deg) translateZ(100px); }

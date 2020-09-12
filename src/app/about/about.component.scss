@@ -16,7 +16,10 @@
     min-height: 100vh;
     @include center-content-vertically;
     font-family: 'Source Code Pro', monospace;
-    background-color: $backgroundColor;
+    // background-color: $backgroundColor;
+    background-image: url('../../assets/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: auto; 
     display: grid;
     grid-template-rows: 15% auto 15%;

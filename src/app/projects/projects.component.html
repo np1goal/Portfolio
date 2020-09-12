@@ -3,68 +3,42 @@
 <div id="projects-document">
     <div id="projects-heading">My Projects</div>
     <div id="projects">
-        <div id="circle-div-vertical">
-            <div id="project-circle-vertical">
-                <img id="project-img0-vertical" class="project-image" src="">
-                <img id="project-img1-vertical" class="project-image" src="">
-                <img id="project-img2-vertical" class="project-image" src="">
-                <img id="project-img3-vertical" class="project-image" src="">
-            </div>
-        </div>
-        <div id="circle-div-horizontal">
-            <div id="project-circle-horizontal">
-                <img id="project-img0-horizontal" class="project-image" src="">
-                <img id="project-img1-horizontal" class="project-image" src="">
-                <img id="project-img2-horizontal" class="project-image" src="">
-                <img id="project-img3-horizontal" class="project-image" src="">
-            </div>
-        </div>
-        <div id="project-description0-vertical">
-            <div id="project-title0-vertical"></div>
-            <br>
-            <div id="project-text0-vertical"></div>
-        </div>
-        <div id="project-description1-vertical">
-            <div id="project-title1-vertical"></div>
-            <br>
-            <div id="project-text1-vertical"></div>
-        </div>
-        <div id="project-description2-vertical">
-            <div id="project-title2-vertical"></div>
-            <br>
-            <div id="project-text2-vertical"></div>
-        </div>
-        <div id="project-description3-vertical">
-            <div id="project-title3-vertical"></div>
-            <br>
-            <div id="project-text3-vertical"></div>
-        </div>
-        <div id="project-description0-horizontal">
-            <div id="project-title0-horizontal"></div>
-            <br>
-            <div id="project-text0-horizontal"></div>
-        </div>
-        <div id="project-description1-horizontal">
-            <div id="project-title1-horizontal"></div>
-            <br>
-            <div id="project-text1-horizontal"></div>
-        </div>
-        <div id="project-description2-horizontal">
-            <div id="project-title2-horizontal"></div>
-            <br>
-            <div id="project-text2-horizontal"></div>
-        </div>
-        <div id="project-description3-horizontal">
-            <div id="project-title3-horizontal"></div>
-            <br>
-            <div id="project-text3-horizontal"></div>
+        <div id="project-change">
+            <div><button id="next-button" class="change-button" mat-button (click) = "nextProject()"><mat-icon>expand_more</mat-icon> Next</button></div>
+            <div><button id="previous-button" class="change-button" mat-button (click) = "previousProject()"><mat-icon>expand_less</mat-icon> Previous</button></div>
         </div>
         <div id="project-list">
-            <div id="project-flash"></div>
+            <div id="circle-div">
+                <div id="project-circle">
+                    <img id="project-img0" class="project-image" src="">
+                    <img id="project-img1" class="project-image" src="">
+                    <img id="project-img2" class="project-image" src="">
+                    <img id="project-img3" class="project-image" src="">
+                </div>
+            </div>
+            <div id="description-div">
+                <div id="project-description0" class="project-description">
+                    <div class="project-title"><div id="project-title0"></div><div id="project-links0"><a><mat-icon>code</mat-icon></a><a><mat-icon>link</mat-icon></a></div></div>
+                    <br>
+                    <div id="project-text0"></div>
+                </div>
+                <div id="project-description1" class="project-description">
+                    <div id="project-title1"></div>
+                    <br>
+                    <div id="project-text1"></div>
+                </div>
+                <div id="project-description2" class="project-description">
+                    <div id="project-title2"></div>
+                    <br>
+                    <div id="project-text2"></div>
+                </div>
+                <div id="project-description3" class="project-description">
+                    <div id="project-title3"></div>
+                    <br>
+                    <div id="project-text3"></div>
+                </div>
+            </div>
         </div>
-        <div id="project-change">
-            <div><button id="previous-button" class="change-button" mat-button (click) = "previousProject()"><mat-icon>expand_less</mat-icon> Previous</button></div>
-            <div><button id="next-button" class="change-button" mat-button (click) = "nextProject()"><mat-icon>expand_more</mat-icon> Next</button></div>
-        </div>
+        
     </div>
 </div>

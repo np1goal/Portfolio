@@ -3,8 +3,10 @@
 
 #home-body {
     height: 100vh;
-    background-color: $backgroundColor;
     font-family: 'Recursive', sans-serif;
+    background-image: url('../../assets/background2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     grid-template-rows: auto 5vh 10vh 0.2vh 1vh 10vh 1vh 5vh 35vh;
     grid-template-areas:    '.'

@@ -12,21 +12,15 @@ export class LoadingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    var _this = this;
-    document.getElementById('loading-number').textContent = _this.loadingPercent + ' %';
-    setInterval(() => {
-        if(_this.loadingPercent+20 <= 100) {
-          _this.loadingPercent = _this.loadingPercent + 20;
-          document.getElementById('loading-number').textContent = _this.loadingPercent + ' %';
-        } else {
-          clearInterval(1000);
-        }
-    }, 1000);
-  }
-
-  increasePercentage() {
-    // this.loadingPercent = this.loadingPercent + 1;
-    // console.log(this.loadingPercent + 1);
-    // document.getElementById('loading-number').textContent = String(this.loadingPercent);
+    // var _this = this;
+    // document.getElementById('loading-number').textContent = _this.loadingPercent + ' %';
+    // setInterval(() => {
+    //     if(_this.loadingPercent+20 <= 100) {
+    //       _this.loadingPercent = _this.loadingPercent + 20;
+    //       document.getElementById('loading-number').textContent = _this.loadingPercent + ' %';
+    //     } else {
+    //       clearInterval(1000);
+    //     }
+    // }, 1000);
   }
 }

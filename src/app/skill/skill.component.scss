@@ -96,7 +96,6 @@
 
 #skills-description {
     grid-area: skills-description;
-    background-color: rgba(#0c042e, 0.4);
     border-radius: 5px;
     display: grid;
     grid-template-rows: 10% 35% auto;
@@ -273,10 +272,6 @@
         margin-left: 0vw;
         margin-top: 0vh;
         @include center-content-horizontally;
-    }
-
-    #extra-info {
-        grid-area: extra-info;
     }
 }
 
